@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  # Route for 'Coming Soon' page
+get '/coming_soon', to: redirect('/coming_soon.html')
+
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
