@@ -1,2 +1,20 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= link_to 'Sign in with Spotify', '/auth/spotify', method: :post %>
+<%= form_with url: root_path, method: :get do |f| %>
+  <%= f.text_field :search, placeholder: "Search for a song" %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<div>
+  <% if @tracks %>
+    <% @tracks.each do |track| %>
+      <div>
+        <h3><%= track.name %></h3>
+        <p><%= track.artists.first.name %></p>
+        <p><%= track.album.name %></p>
+        <%= image_tag track.album.images.first["url"] %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

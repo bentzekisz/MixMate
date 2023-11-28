@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
   # Route for 'Coming Soon' page
   get '/coming_soon', to: redirect('/coming_soon.html')
+  # config/routes.rb
+
+  get '/auth/spotify/callback', to: 'users#spotify'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
