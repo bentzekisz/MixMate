@@ -25,7 +25,12 @@ class PlaylistSongsController < ApplicationController
       render :edit
     end
   end
-  
+
+  def destroy
+    @playlist_song.destroy
+    redirect_to playlist_playlist_songs_path, status: :see_other
+  end
+
   private
 
   def set_playlist_song
