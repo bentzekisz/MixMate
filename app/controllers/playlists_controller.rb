@@ -7,6 +7,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
     @playlist = Playlist.find(params[:id])
     @playlist_songs = @playlist.playlist_songs
     @playlist_song = PlaylistSong.new
@@ -17,6 +18,8 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.where(user: current_user)
     @songs = Song.where(user: current_user)
     @user = current_user
+=======
+>>>>>>> 822141354c35f30ae40a259e098d110756975e7a
   end
 
   def new
