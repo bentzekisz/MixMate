@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :playlists, only: [ :new, :create, :show, :edit, :update, :destroy ] do
+    member do
+      get :preview, :confirmation
+    end
     resources :playlist_songs, only: [ :new, :create, :edit, :update, :destroy]
   end
   # Route for 'Coming Soon' page
@@ -10,7 +13,7 @@ Rails.application.routes.draw do
   # config/routes.rb
 
   get '/auth/spotify/callback', to: 'users#spotify'
-  get '/playlists/confirmation', to: 'playlists#confirmation', as: 'playlist_confirmation'
+
 
 
 
