@@ -32,8 +32,10 @@ class PlaylistSongsController < ApplicationController
   def destroy
     @playlist_song = PlaylistSong.find(params[:id])
     @playlist_song.destroy
-    redirect_to playlist_playlist_songs_path, status: :see_other
+    redirect_to playlist_playlist_songs_path, status: :see_other, notice: 'Song was successfully removed.'
   end
+
+
 
   def manage
     @playlist = Playlist.find_by(id: params[:playlist_id])
