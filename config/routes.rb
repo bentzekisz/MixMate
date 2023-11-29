@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :playlists, only: [ :new, :create, :show, :edit, :update, :destroy ] do
+    member do
+      get :preview, :confirmation
+    end
     resources :playlist_songs, only: [ :new, :create, :edit, :update, :destroy]
   end
   # Route for 'Coming Soon' page
@@ -13,8 +16,15 @@ Rails.application.routes.draw do
 
 
 
+
   get 'dashboard', to: 'playlists#dashboard'
 
+
+  resources :playlists do
+    resources :playlist_songs do
+      get 'manage', on: :collection
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
