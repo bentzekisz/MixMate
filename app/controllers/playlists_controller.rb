@@ -14,6 +14,7 @@ class PlaylistsController < ApplicationController
   end
 
   def dashboard
+    @playlists = current_user.playlists
     @playlists = Playlist.where(user: current_user)
     @songs = Song.where(user: current_user)
     @user = current_user

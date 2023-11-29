@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+  <h1>Hi <%= current_user.username %>! Here is your dashboard</h1>
+
+  <% if @playlists.any? %>
+    <ul>
+      <% @playlists.each do |playlist| %>
+        <li>
+          <%= link_to playlist.title, "#", class: "playlist-link" %>
+          <!-- #: Here comes the playlist path -->
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>You don't have any playlists yet.</p>
+  <% end %>
+
+  <%= link_to 'Create New Playlist', new_playlist_path %>
+<% else %>
+  <p>Please <%= link_to 'sign in', new_user_session_path %> to view this page.</p>
+<% end %>
