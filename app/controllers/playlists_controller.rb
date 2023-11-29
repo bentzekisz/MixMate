@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_playlist, only: [:show, :edit, :update, :destroy, :confirmation, :preview]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
@@ -48,7 +48,11 @@ class PlaylistsController < ApplicationController
   end
 
   def confirmation
-    # Add any necessary logic here
+    # logic
+  end
+
+  def preview
+    # logic
   end
 
   private
