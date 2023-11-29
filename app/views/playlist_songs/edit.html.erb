@@ -1,0 +1,17 @@
+<div class="container-fluid py-4">
+  <div class="d-flex justify-content-left" >
+     <%= link_to 'Back', playlist_playlist_songs_path, class: 'btn btn-primary' %>
+      <div class="row ">
+        <div class="col-12 col-md-6 offset-lg-3">
+          <div class="bg-white rounded p-3 shadow">
+            <div class="card-title text-center">
+              <h1>Add your message</h1><br>
+            </div>
+  <%= simple_form_for @playlist_song do |f|%>
+  <%# render spotify song card %>
+    <%= f.input :message, placeholder: 'Type your personal message here' %>
+    <%= f.button :submit, '<i class="fa-regular fa-circle-check"></i>'.html_safe%>
+  <% end %>
+
+  </div>
+</div>
