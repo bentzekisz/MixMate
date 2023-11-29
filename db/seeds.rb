@@ -16,15 +16,15 @@ User.destroy_all
 
 # Create Users
 user1 = User.create!(
+  username: "Shirin",
   email: 'user1@example.com',
-  password: 'password123',
-  password_confirmation: 'password123'
+  password: 'password123'
 )
 
 user2 = User.create!(
+  username: "David",
   email: 'user2@example.com',
-  password: 'password123',
-  password_confirmation: 'password123'
+  password: 'password123'
 )
 
 # Create Playlists for users if needed
