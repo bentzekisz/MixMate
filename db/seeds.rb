@@ -1,53 +1,73 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-
 # db/seeds.rb
 
 # Clear existing data to prevent duplicates
+PlaylistSong.destroy_all
+Playlist.destroy_all
+Song.destroy_all
 User.destroy_all
 
 # Create Users
 user1 = User.create!(
-  email: 'user1@example.com',
-  password: 'password123',
-  password_confirmation: 'password123'
+  username: "Alex",
+  email: 'alex@example.com',
+  password: 'password123'
 )
 
 user2 = User.create!(
-  email: 'user2@example.com',
-  password: 'password123',
-  password_confirmation: 'password123'
+  username: "Morgan",
+  email: 'morgan@example.com',
+  password: 'password123'
 )
 
-# Create Playlists for users if needed
-# For user1
-3.times do |i|
-  Playlist.create!(
-    user: user1,
-    title: "User1 Playlist ##{i + 1}"
-    # other attributes for playlists if we need it
-  )
+# Sample songs data
+songs_data = [
+  { title: "Shape of You", artist: "Ed Sheeran", spotify_track_id: "your_spotify_track_id_1", cover_photo_url: "https://example.com/cover1.jpg", release_year: 2017 },
+  { title: "Someone Like You", artist: "Adele", spotify_track_id: "your_spotify_track_id_2", cover_photo_url: "https://example.com/cover2.jpg", release_year: 2011 },
+  # Add more songs as needed
+]
+
+# Create songs
+songs = songs_data.map do |song_data|
+  Song.create!(song_data)
 end
 
+# Create Playlists for users and add songs to them
+# For user1
+playlist1 = Playlist.create!(
+  user: user1,
+  title: "Summer Vibes",
+  general_message: "Songs that remind me of sunny days at the beach!",
+  from_name: "Alex",
+  to_name: "All my friends"
+)
+
+playlist2 = Playlist.create!(
+  user: user1,
+  title: "Chill Evenings",
+  general_message: "Perfect tracks for a relaxing evening at home.",
+  from_name: "Alex",
+  to_name: "Myself"
+)
+
 # For user2
-2.times do |i|
-  Playlist.create!(
-    user: user2,
-    title: "User2 Playlist ##{i + 1}"
-    # other attributes for playlists if needed
-  )
+playlist3 = Playlist.create!(
+  user: user2,
+  title: "Road Trip Hits",
+  general_message: "The ultimate playlist for long drives.",
+  from_name: "Morgan",
+  to_name: "Road Trip Buddies"
+)
+
+# Add songs to playlists with unique messages
+songs.each_with_index do |song, index|
+  PlaylistSong.create!(playlist: playlist1, song: song, message: "This song brings back summer memories!", position: index + 1)
+  PlaylistSong.create!(playlist: playlist2, song: song, message: "Perfect for unwinding after a long day.", position: index + 1)
+  PlaylistSong.create!(playlist: playlist3, song: song, message: "Nothing beats this track while on the road.", position: index + 1)
 end
 
 # Output the playlist count for each user
 puts "User 1 has #{user1.playlists.count} playlists."
 puts "User 2 has #{user2.playlists.count} playlists."
+puts "Total songs created: #{Song.count}"
 
-puts 'Users and their playlists have been seeded.'
+puts 'Users, playlists, and songs have been seeded.'

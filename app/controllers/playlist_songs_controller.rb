@@ -31,10 +31,13 @@ class PlaylistSongsController < ApplicationController
   end
 
   def edit
-    #before_action
+    @playlist_song = PlaylistSong.find(params[:id])
+    @playlist = @playlist_song.playlist # assuming a playlist_song belongs_to a playlist
+    # ...
   end
 
   def update
+    @playlist_song = PlaylistSong.find(params[:id])
     if @playlist_song.update(playlist_song_params)
       redirect_to playlist_playlist_songs_path
     else
@@ -43,17 +46,32 @@ class PlaylistSongsController < ApplicationController
   end
 
   def destroy
+    @playlist_song = PlaylistSong.find(params[:id])
     @playlist_song.destroy
-    redirect_to playlist_playlist_songs_path, status: :see_other
+    redirect_to playlist_playlist_songs_path, status: :see_other, notice: 'Song was successfully removed.'
+  end
+
+
+
+  def manage
+    @playlist = Playlist.find_by(id: params[:playlist_id])
+    if @playlist
+      @playlist_songs = @playlist.playlist_songs
+    else
+      # Redirect to a fallback page or show an error message
+      redirect_to root_path, alert: "Playlist not found"
+    end
   end
 
   private
 
   def set_playlist_song
-    @playlist_song = Playlist_song.find(params[:id])
+    @playlist_song = PlaylistSong.find(params[:id])
   end
 
   def playlist_song_params
-    params.require(:playlist_song).permit(:message, :position)
+    params.require(:playlist_song).permit(:message, :position, :song_id)
   end
+
+
 end
