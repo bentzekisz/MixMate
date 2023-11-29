@@ -47,6 +47,10 @@ class PlaylistsController < ApplicationController
     redirect_to playlists_path
   end
 
+  def confirmation
+    # Add any necessary logic here
+  end
+
   private
 
   def set_playlist

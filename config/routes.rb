@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # config/routes.rb
 
   get '/auth/spotify/callback', to: 'users#spotify'
+  get '/playlists/confirmation', to: 'playlists#confirmation', as: 'playlist_confirmation'
 
 
 
