@@ -1,0 +1,15 @@
+<h1>Browse your song and add it to your list</h1>
+
+<%= link_to 'Sign in with Spotify', '/auth/spotify', method: :post %>
+
+<div data-controller="search">
+  <%= form_with url: new_playlist_playlist_song_path, method: :get,
+      html: {data: {search_target: "form"}} do |f| %>
+    <%= f.text_field :search, placeholder: "Search for a song", value: params[:query], data: {search_target: "input", action: "keyup->search#update"} %>
+    <%= f.submit "Search" %>
+  <% end %>
+
+  <div class="dropdown">
+    <%= render "list", tracks: @tracks, playlist: @playlist %>
+  </div>
+</div>

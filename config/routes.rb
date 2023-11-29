@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :preview, :confirmation
     end
     resources :playlist_songs, only: [ :new, :create, :edit, :update, :destroy]
+
   end
   # Route for 'Coming Soon' page
   get '/coming_soon', to: redirect('/coming_soon.html')

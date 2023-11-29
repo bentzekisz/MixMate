@@ -5,8 +5,7 @@
     <ul>
       <% @playlists.each do |playlist| %>
         <li>
-          <%= link_to playlist.title, "#", class: "playlist-link" %>
-          <!-- #: Here comes the playlist path -->
+          <%= link_to playlist.title, manage_playlist_playlist_songs_path(playlist_id: playlist.id) %>
         </li>
       <% end %>
     </ul>
