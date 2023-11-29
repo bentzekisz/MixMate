@@ -31,6 +31,16 @@ class PlaylistSongsController < ApplicationController
     redirect_to playlist_playlist_songs_path, status: :see_other
   end
 
+  def manage
+    @playlist = Playlist.find_by(id: params[:playlist_id])
+    if @playlist
+      @playlist_songs = @playlist.playlist_songs
+    else
+      # Redirect to a fallback page or show an error message
+      redirect_to root_path, alert: "Playlist not found"
+    end
+  end
+
   private
 
   def set_playlist_song
@@ -40,4 +50,6 @@ class PlaylistSongsController < ApplicationController
   def playlist_song_params
     params.require(:playlist_song).permit(:message, :position)
   end
+
+
 end

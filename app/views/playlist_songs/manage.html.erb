@@ -1,0 +1,14 @@
+<!-- app/views/playlist_songs/manage.html.erb -->
+<h1><%= @playlist.title %></h1>
+<p><%= @playlist.general_message %></p>
+
+<% if @playlist_songs.any? %>
+  <ul>
+    <% @playlist_songs.each do |playlist_song| %>
+      <li><%= playlist_song.song.title %> - <%= playlist_song.song.artist %></li>
+      <!-- more details here -->
+    <% end %>
+  </ul>
+<% else %>
+  <p>No songs in this playlist.</p>
+<% end %>

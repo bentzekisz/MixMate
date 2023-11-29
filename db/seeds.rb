@@ -12,7 +12,10 @@
 # db/seeds.rb
 
 # Clear existing data to prevent duplicates
+PlaylistSong.destroy_all
+Playlist.destroy_all
 User.destroy_all
+
 
 # Create Users
 user1 = User.create!(
@@ -27,27 +30,50 @@ user2 = User.create!(
   password: 'password123'
 )
 
-# Create Playlists for users if needed
+# Sample songs data
+songs_data = [
+  { title: "Song 1", artist: "Artist 1", spotify_track_id: "123" },
+  { title: "Song 2", artist: "Artist 2", spotify_track_id: "456" },
+  # Add more songs as needed
+]
+
+# Create songs
+songs = songs_data.map do |song_data|
+  Song.create!(song_data)
+end
+
+# Create Playlists for users and add songs to them
 # For user1
 3.times do |i|
-  Playlist.create!(
+  playlist = Playlist.create!(
     user: user1,
     title: "User1 Playlist ##{i + 1}"
     # other attributes for playlists if we need it
   )
+
+  # Add songs to playlist
+  songs.each do |song|
+    PlaylistSong.create!(playlist: playlist, song: song)
+  end
 end
 
 # For user2
 2.times do |i|
-  Playlist.create!(
+  playlist = Playlist.create!(
     user: user2,
     title: "User2 Playlist ##{i + 1}"
     # other attributes for playlists if needed
   )
+
+  # Add songs to playlist
+  songs.each do |song|
+    PlaylistSong.create!(playlist: playlist, song: song)
+  end
 end
 
 # Output the playlist count for each user
 puts "User 1 has #{user1.playlists.count} playlists."
 puts "User 2 has #{user2.playlists.count} playlists."
+puts "Total songs created: #{Song.count}"
 
-puts 'Users and their playlists have been seeded.'
+puts 'Users, playlists, and songs have been seeded.'
