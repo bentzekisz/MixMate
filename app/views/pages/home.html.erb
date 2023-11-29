@@ -1,6 +1,1 @@
 <h1>Pages#home</h1>
-<% if Playlist.any? %>
-  <%= link_to 'Manage Songs', manage_playlist_playlist_songs_path(playlist_id: Playlist.first.id) %>
-<% else %>
-  <p>No playlists available to manage.</p>
-<% end %>
