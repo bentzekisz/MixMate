@@ -7,6 +7,7 @@
               <%= simple_form_for [playlist, PlaylistSong.new] do |f|%>
                 <%= hidden_field_tag :track_name, track.name %>
                 <%= hidden_field_tag :track_id, track.id %>
+                <%= hidden_field_tag :track_artists_first_name, track.artists.first.name %>
                 <button type="submit" class="btn btn-primary">
                 <i class="fa-solid fa-circle-plus"></i>
                 </button>
