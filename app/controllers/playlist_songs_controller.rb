@@ -16,7 +16,8 @@ class PlaylistSongsController < ApplicationController
 
   def edit
     @playlist_song = PlaylistSong.find(params[:id])
-    @playlist = @playlist_song.playlist # assuming a playlist_song belongs_to a playlist
+     @playlist = @playlist_song.playlist
+    # @playlist = @playlist_song.playlist # assuming a playlist_song belongs_to a playlist
     # ...
   end
 
