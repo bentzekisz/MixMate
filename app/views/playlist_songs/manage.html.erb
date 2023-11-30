@@ -1,12 +1,15 @@
 <%= link_to 'Back to Dashboard', dashboard_path, class: 'btn btn-secondary' %>
-<h1><%= @playlist.title %></h1>
-<h2>To: <%= @playlist.to_name %></h2>
-<p><%= @playlist.general_message %></p>
 <% if @playlist_songs.count >= 12 %>
   <p class="text-danger">Playlist is full. You cannot add another song.</p>
 <% else %>
   <%= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
 <% end %>
+<h1><%= @playlist.title %></h1>
+<h2>From: <%= @playlist.from_name %></h2>
+<h2>To: <%= @playlist.to_name %></h2>
+<p><%= @playlist.general_message %></p>
+
+
 <% if @playlist_songs.any? %>
   <ul>
     <% @playlist_songs.each do |playlist_song| %>
