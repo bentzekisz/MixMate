@@ -8,7 +8,7 @@ class PlaylistSong < ApplicationRecord
 
   def max_songs_limit
     if playlist.playlist_songs.count >= 12
-      errors.add(:playlist, 'cannot have more than 12 songs')
+      errors.add(:playlist, 'the playlist cannot have more than 12 songs')
     end
   end
 end
