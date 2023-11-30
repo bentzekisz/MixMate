@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-fixed-top <%= class_names({"conBG": current_page?(root_path)}) %>">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
