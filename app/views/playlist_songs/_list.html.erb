@@ -2,21 +2,19 @@
     <% if @tracks %>
         <% @tracks[0..4].each do |track| %>
           <div class="card">
-            <div class="d-flex justify-content-start">
-              <%= image_tag track.album.images.first["url"], style: 'height:60px; width:60px;' %>
-              <div>
-                <p><strong><%= track.name %></strong></p>
-                <p><%= track.artists.first.name %></p>
-                <p><%= track.album.name %></p>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%=track.id%>?utm_source=generator" width="600" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-              </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%=track.id%>?utm_source=generator" width="600" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+              <%= simple_form_for [playlist, PlaylistSong.new] do |f|%>
+                <%= hidden_field_tag :track_name, track.name %>
+                <%= hidden_field_tag :track_id, track.id %>
+                <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-circle-plus"></i>
+                </button>
+              <% end %>
             </div>
-            <%= simple_form_for [playlist, PlaylistSong.new] do |f|%>
-              <%= hidden_field_tag :track_name, track.name %>
-              <%= hidden_field_tag :track_id, track.id %>
-              <%= f.submit '✔️'  %>
-            <% end %>
           </div>
         <% end %>
     <% end %>
   </div>
+
+<!-- f.submit 'safe' -->
