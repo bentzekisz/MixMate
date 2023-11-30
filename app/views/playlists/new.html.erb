@@ -4,7 +4,8 @@
   <%= f.input :from_name, placeholder: 'Let the reciever know, who send the playlist' %>
   <%= f.input :to_name, placeholder: 'Who would you like to send the playlist to' %>
   <%= f.input :title, placeholder: 'Give a name to your playlist' %>
+  <%= f.input :general_message, placeholder: 'Send a general message' %>
   <%= f.submit "Lets get it started" %><br>
 <% end %>
 
-<%= link_to "Back", root_path %>
+<%= link_to "Back", dashboard_path %>

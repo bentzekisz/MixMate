@@ -26,9 +26,9 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(playlist_params)
-
+    @playlist.user = current_user
     if @playlist.save
-      redirect_to playlist_path(@playlist)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -70,6 +70,6 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:name, :description, :user_id)
+    params.require(:playlist).permit(:title, :general_message, :from_name, :to_name)
   end
 end
