@@ -6,6 +6,7 @@
       <% @playlists.each do |playlist| %>
         <li>
           <%= link_to playlist.title, manage_playlist_playlist_songs_path(playlist_id: playlist.id) %>
+          <%= link_to 'Delete Playlist', playlist_path(playlist),  method: :delete,  data: {turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the playlistwith all songs and personal messages, and CANNOT be reverted!"}%>
         </li>
       <% end %>
     </ul>
