@@ -8,6 +8,7 @@
 <h2>From: <%= @playlist.from_name %></h2>
 <h2>To: <%= @playlist.to_name %></h2>
 <p><%= @playlist.general_message %></p>
+<%= link_to 'Edit Playlist Properties', edit_playlist_path(@playlist), class: 'btn btn-primary' %>
 
 
 <% if @playlist_songs.any? %>
