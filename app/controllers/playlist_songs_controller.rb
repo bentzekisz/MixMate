@@ -22,7 +22,7 @@ class PlaylistSongsController < ApplicationController
     @playlist_song.song = @song
     @playlist_song.playlist = @playlist
     if @playlist_song.save
-      redirect_to edit_playlist_playlist_song_path(@playlist, @playlist_song) 
+      redirect_to edit_playlist_playlist_song_path(@playlist, @playlist_song)
     else
       render :new, status: :unprocessable_entity
     end
@@ -62,6 +62,16 @@ class PlaylistSongsController < ApplicationController
       # Redirect to a fallback page or show an error message
       redirect_to root_path, alert: "Playlist not found"
     end
+  end
+
+  def move_up
+    PlaylistSong.find(params[:id]).move_higher
+    redirect_to manage_playlist_playlist_songs_path(params[:playlist_id])
+  end
+
+  def move_down
+    PlaylistSong.find(params[:id]).move_lower
+    redirect_to manage_playlist_playlist_songs_path(params[:playlist_id])
   end
 
   private
