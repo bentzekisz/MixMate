@@ -14,20 +14,15 @@ class PlaylistSongsController < ApplicationController
   end
 
   def create
-    # It needs a playlist
     @playlist = Playlist.find(params[:playlist_id])
-    # it needs a song. Lets create the song on the fly
-    # What info does a song need? name, spotify_id and create the song
-    # find_or_create_by - look up documentation
     @song = Song.find_or_create_by(spotify_track_id: params[:track_id],
                                     title: params[:track_name],
                                     artist: params[:track_artists_first_name])
-    # @song then you can assign it to the playlist_song
     @playlist_song = PlaylistSong.new
     @playlist_song.song = @song
     @playlist_song.playlist = @playlist
     if @playlist_song.save
-      redirect_to edit_playlist_playlist_song_path(@playlist, @playlist_song) # todo
+      redirect_to edit_playlist_playlist_song_path(@playlist, @playlist_song) 
     else
       render :new, status: :unprocessable_entity
     end
