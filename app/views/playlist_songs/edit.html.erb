@@ -1,20 +1,27 @@
 <div class="container">
-  <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
-  <h1 class="text-center mt-5">Add your message</h1>
 
+<h1>Add you personal message to the song</h1>
   <div class="card">
-    <%= simple_form_for [@playlist, @playlist_song] do |f| %>
-      <%# render spotify song card %>
-      <%= f.input :message, placeholder: 'Type your personal message here' %>
-      </div>
-      <% f.button :submit, class: 'btn-primary' do %>
-      <%= content_tag(:i, nil, class: 'fas fa-regular fa-circle-check') %>
-      Update!
+
+    <% if @playlist_song.present? %>
+    <p><strong>Song:</strong> <%= @playlist_song.song.title %></p>
+    <p><strong>Artist:</strong> <%= @playlist_song.song.artist %></p>
+
+      <%= simple_form_for [@playlist, @playlist_song] do |f| %>
+        <div class="field">
+          <%= f.label :message%>
+          <%= f.text_area :message %>
+        </div>
+  </div>
+          <button type="submit" class='btn btn-success'><i class="far fa-circle-check"></i>
+          </button>
       <% end %>
-    <% end %>
+      <% else %>
+      <p>No songs in this playlist.</p>
+      <% end %>
 
-    <%# <button class="button-75" role="button"><%= link_to ('<i class="fa-solid fa-arrow-left"></i> Back').html_safe, queens_path, class: "button_link" %>
-
+<div>
+  <%= link_to 'Add another Song', new_playlist_playlist_song_path(@playlist_song.playlist), class: 'btn btn-secondary' %>
+  <%= link_to 'Go Further to manage', manage_playlist_playlist_songs_path(@playlist_song.playlist), class: 'btn btn-primary' %>
 </div>
 
-<%# <button class="button-75" role="button"><%= link_to ('<i class="fa-solid fa-arrow-left"></i> Back').html_safe, queens_path, class: "button_link" %>

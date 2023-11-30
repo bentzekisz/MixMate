@@ -43,9 +43,17 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
+    @playlist = Playlist.find(params[:id])
+
+    # First, delete all associated playlist_songs
+    @playlist.playlist_songs.destroy_all
+
+    # Then, delete the playlist
     @playlist.destroy
-    redirect_to playlists_path
+
+    redirect_to dashboard_path, notice: 'Playlist was successfully deleted.'
   end
+
 
   def confirmation
     # logic

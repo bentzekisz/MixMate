@@ -1,7 +1,7 @@
+<%= link_to 'Back to Dashboard', dashboard_path, class: 'btn btn-secondary' %>
 <h1><%= @playlist.title %></h1>
 <h2>To: <%= @playlist.to_name %></h2>
 <p><%= @playlist.general_message %></p>
-
 <% if @playlist_songs.any? %>
   <ul>
     <% @playlist_songs.each do |playlist_song| %>
@@ -9,9 +9,10 @@
         <%= playlist_song.song.title %> - <%= playlist_song.song.artist %>
         <p>Message: <%= playlist_song.message %></p>
         <%= link_to 'Edit', edit_playlist_playlist_song_path(@playlist, playlist_song) %> |
-        <%= link_to 'Delete', playlist_playlist_song_path(@playlist, playlist_song), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', playlist_playlist_song_path(@playlist, playlist_song), method: :delete,  data: {turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!"}%>
       </li>
     <% end %>
+    <%= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
   </ul>
 <% else %>
   <p>No songs in this playlist.</p>
