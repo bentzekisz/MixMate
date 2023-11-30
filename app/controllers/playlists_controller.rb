@@ -39,7 +39,7 @@ class PlaylistsController < ApplicationController
 
   def update
     @playlist.update(playlist_params)
-    redirect_to playlist_path(@playlist)
+    redirect_to manage_playlist_playlist_songs_path(@playlist)
   end
 
   def destroy
