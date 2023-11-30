@@ -64,14 +64,17 @@ class PlaylistSongsController < ApplicationController
     end
   end
 
+
   def move_up
-    PlaylistSong.find(params[:id]).move_higher
-    redirect_to manage_playlist_playlist_songs_path(params[:playlist_id])
+    playlist_song = PlaylistSong.find(params[:id])
+    playlist_song.move_higher
+    redirect_to manage_playlist_playlist_songs_path(playlist_song.playlist_id)
   end
 
   def move_down
-    PlaylistSong.find(params[:id]).move_lower
-    redirect_to manage_playlist_playlist_songs_path(params[:playlist_id])
+    playlist_song = PlaylistSong.find(params[:id])
+    playlist_song.move_lower
+    redirect_to manage_playlist_playlist_songs_path(playlist_song.playlist_id)
   end
 
   private

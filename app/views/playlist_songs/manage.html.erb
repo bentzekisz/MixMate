@@ -13,12 +13,12 @@
 
 <% if @playlist_songs.any? %>
   <ul>
-    <% @playlist_songs.each_with_index do |playlist_song, index| %>
-      <li>
-         <%= link_to "#{playlist_song.song.title} - #{playlist_song.song.artist}", preview_playlist_path(@playlist) %>
-        <%= link_to 'Move Up', move_up_playlist_playlist_song_path(playlist_id: @playlist, id: playlist_song), method: :patch unless index.zero? %>
-        <%= link_to 'Move Down', move_down_playlist_playlist_song_path(playlist_id: @playlist, id: playlist_song), method: :patch unless index == @playlist_songs.count - 1 %>
-        <p>Message: <%= playlist_song.message %></p>
+<% @playlist_songs.each_with_index do |playlist_song, index| %>
+  <li>
+    <%= link_to "#{playlist_song.song.title} - #{playlist_song.song.artist}", preview_playlist_path(playlist_song.playlist), method: :get %>
+    <%= link_to 'Move Up', move_up_playlist_playlist_song_path(playlist_id: playlist_song.playlist_id, id: playlist_song.id), data: { turbo_method: :patch } unless index.zero? %>
+    <%= link_to 'Move Down', move_down_playlist_playlist_song_path(playlist_id: playlist_song.playlist_id, id: playlist_song.id), data: { turbo_method: :patch } unless index == @playlist_songs.size - 1 %>
+    <p>Message: <%= playlist_song.message %></p>
         <%= link_to 'Edit', edit_playlist_playlist_song_path(@playlist, playlist_song) %> |
         <%= link_to 'Delete', playlist_playlist_song_path(@playlist, playlist_song), method: :delete,  data: {turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!"}%>
       </li>
