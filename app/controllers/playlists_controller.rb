@@ -60,7 +60,7 @@ class PlaylistsController < ApplicationController
   end
 
   def preview
-    # logic
+    @playlist_songs = @playlist.playlist_songs.includes(:song)
   end
 
   private
