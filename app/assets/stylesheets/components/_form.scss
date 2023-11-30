@@ -1,0 +1,17 @@
+.form {
+  input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 8px;
+  }
+  input[type=text]:focus {
+    border: 3px solid #5B42F3;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  }
+}
