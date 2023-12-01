@@ -6,6 +6,7 @@
   background-attachment: fixed; /* Optional: fixed or scroll, depending on whether you want the background to scroll with the content or stay fixed */
 }
 
+
 .logo {
   width: 100px;
   height: 100px;
@@ -44,4 +45,16 @@
 
 .card {
   border-radius: 10px !important;
+}
+
+body {
+  background: rgb(140,82,255);
+  background: linear-gradient(90deg, rgba(140,82,255,1) 0%, rgba(0,191,99,1) 100%);
+}
+.dashBG {
+  background: rgb(140,82,255);
+  background: linear-gradient(90deg, rgba(140,82,255,1) 0%, rgba(0,191,99,1) 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

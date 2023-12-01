@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-fixed-top ps-3 pe-3 <%= class_names({"conBG": current_page?(root_path)}) %>">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-fixed-top ps-3 pe-3 <%= class_names({"conBG": current_page?(root_path)}) %> <%= class_names({"dashBG": !current_page?(root_path)}) %>">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo_white.png", style: 'height:70px; width:auto;' %>
