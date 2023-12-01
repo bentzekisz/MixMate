@@ -1,4 +1,5 @@
 <%= link_to 'Back to Dashboard', dashboard_path, class: 'btn btn-secondary' %>
+
 <% if @playlist_songs.count >= 12 %>
   <p class="text-danger">Playlist is full. You cannot add another song.</p>
 <% else %>
@@ -10,20 +11,48 @@
 <p><%= @playlist.general_message %></p>
 <%= link_to 'Edit Playlist Properties', edit_playlist_path(@playlist), class: 'btn btn-primary' %>
 
-
 <% if @playlist_songs.any? %>
-  <ul>
-<% @playlist_songs.each_with_index do |playlist_song, index| %>
-  <li>
-    <%= link_to "#{playlist_song.song.title} - #{playlist_song.song.artist}", preview_playlist_path(playlist_song.playlist), method: :get %>
-    <%= link_to 'Move Up', move_up_playlist_playlist_song_path(playlist_id: playlist_song.playlist_id, id: playlist_song.id), data: { turbo_method: :patch } unless index.zero? %>
-    <%= link_to 'Move Down', move_down_playlist_playlist_song_path(playlist_id: playlist_song.playlist_id, id: playlist_song.id), data: { turbo_method: :patch } unless index == @playlist_songs.size - 1 %>
-    <p>Message: <%= playlist_song.message %></p>
+  <ul id="sortable-list">
+    <% @playlist_songs.each do |playlist_song| %>
+      <li data-id="<%= playlist_song.id %>">
+        <%= link_to "#{playlist_song.song.title} - #{playlist_song.song.artist}", preview_playlist_path(playlist_song.playlist), method: :get %>
+        <p>Message: <%= playlist_song.message %></p>
         <%= link_to 'Edit', edit_playlist_playlist_song_path(@playlist, playlist_song) %> |
-        <%= link_to 'Delete', playlist_playlist_song_path(@playlist, playlist_song), method: :delete,  data: {turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!"}%>
+        <%= link_to 'Delete', playlist_playlist_song_path(@playlist, playlist_song), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!" } %>
       </li>
     <% end %>
   </ul>
 <% else %>
   <p>No songs in this playlist.</p>
 <% end %>
+
+<% if @playlist_songs.any? %>
+  <div id="sortable-grid" class="grid-layout">
+    <% @playlist_songs.each do |playlist_song| %>
+      <div class="grid-item" data-id="<%= playlist_song.id %>">
+        <p><%= "#{playlist_song.song.title} - #{playlist_song.song.artist}" %></p>
+        <p>Message: <%= playlist_song.message %></p>
+        <%= link_to 'Edit', edit_playlist_playlist_song_path(@playlist, playlist_song) %> |
+        <%= link_to 'Delete', playlist_playlist_song_path(@playlist, playlist_song), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!" } %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No songs in this playlist.</p>
+<% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
+<script>
+  // Ensure this script runs after the page is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    const el = document.getElementById('sortable-grid');
+    if (el) {
+      new Sortable(el, {
+        onEnd: function (evt) {
+          // Add the logic to update the order in your database
+          // This can be an AJAX request to your Rails backend
+        }
+      });
+    }
+  });
+</script>
