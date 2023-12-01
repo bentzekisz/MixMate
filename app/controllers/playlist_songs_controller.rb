@@ -40,7 +40,7 @@ class PlaylistSongsController < ApplicationController
   def update
     @playlist_song = PlaylistSong.find(params[:id])
     if @playlist_song.update(playlist_song_params)
-      redirect_to edit_playlist_playlist_song_path(@playlist_song.playlist, @playlist_song), notice: 'Message saved successfully!'
+      redirect_to manage_playlist_playlist_songs_path(@playlist_song.playlist, @playlist_song), notice: 'Message saved successfully!'
     else
       render :edit
     end
