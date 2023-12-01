@@ -14,11 +14,12 @@ Rails.application.routes.draw do
   # Resources for playlists and nested playlist_songs
   resources :playlists do
     member do
+      get "share/:uuid", to: "playlists#receiver_view", as: :share
       get :preview
       get :confirmation
-            # New route for receiver_view
-            #get 'receiver_view/:uuid', to: 'playlists#receiver_view', as: :receiver_view
-            # Simplified route for receiver_view for development purposes
+      # New route for receiver_view
+      #get 'receiver_view/:uuid', to: 'playlists#receiver_view', as: :receiver_view
+      # Simplified route for receiver_view for development purposes
       get 'receiver_view', to: 'playlists#receiver_view', as: :receiver_view
 
     end

@@ -1,7 +1,6 @@
 <div class="container">
 
   <h2>Dear ...</h2>
-
   <% if @playlist_songs.present? %>
     <div id="songCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -20,7 +19,7 @@
       <% end %>
     </div>
   <% else %>
-    <%= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
+    <%#= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
   <% end %>
 
     <!-- Add navigation buttons -->
