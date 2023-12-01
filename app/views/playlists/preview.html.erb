@@ -2,6 +2,7 @@
   <div data-controller="clipboard"  data-clipboard-feedback-text-value="Copied!">
     <%= link_to "(share)",   share_playlist_url(id: @playlist.id, uuid:  @playlist.uuid ), data: { clipboard_target: "link" , action: "click->clipboard#copy"}, class: 'btn btn-primary' %>
   </div>
+
 <%= link_to "View Playlist", receiver_view_playlist_path(@playlist), class: 'btn btn-primary' %>
 
   <h1>Preview</h1>

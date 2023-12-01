@@ -1,49 +1,6 @@
 <div class="container">
-
+<h1>Receivers View</h1>
   <h2>Dear ...</h2>
-  <% if @playlist_songs.present? %>
-    <div id="songCarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-      <% @playlist_songs.each do |playlist_song, index| %>
-        <div class="carousel-item <%= 'active' if @playlist_songs.first == playlist_song %>">
-          <!-- Your song card content goes here -->
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><%= playlist_song.song.title %></h5>
-              <h5 class="card-title"><%= playlist_song.song.artist %></h5>
-              <p class="card-text"><strong>Personal Message:</strong> <%= playlist_song.message %></p>
-              <!-- You can add other song details as needed -->
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <%#= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
-  <% end %>
 
-    <!-- Add navigation buttons -->
-    <a class="carousel-control-prev text-dark" href="#songCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next text-dark" href="#songCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  <%
-=begin%>
- <div class="d-flex justify-content-between">
-    <%= link_to "Back to rearrange", manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-secondary' %>
-    <%= link_to "Confirmation", confirmation_playlist_path(@playlist), class: 'btn btn-primary' %>
-  </div>
-<%
-=end%>
-</div>
+   <%= render "slider" %>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    new bootstrap.Carousel(document.getElementById('songCarousel'));
-  });
-</script>

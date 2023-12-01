@@ -1,6 +1,7 @@
 class PlaylistSongsController < ApplicationController
   before_action :set_playlist_song, only: [:edit, :update]
 
+
   def new
     @playlist = Playlist.find(params[:playlist_id])
     @playlist_song = PlaylistSong.new
@@ -40,7 +41,7 @@ class PlaylistSongsController < ApplicationController
   def update
     @playlist_song = PlaylistSong.find(params[:id])
     if @playlist_song.update(playlist_song_params)
-      redirect_to edit_playlist_playlist_song_path(@playlist_song.playlist, @playlist_song), notice: 'Message saved successfully!'
+      redirect_to manage_playlist_playlist_songs_path(@playlist_song.playlist, @playlist_song), notice: 'Message saved successfully!'
     else
       render :edit
     end
@@ -65,17 +66,25 @@ class PlaylistSongsController < ApplicationController
   end
 
 
-  def move_up
-    playlist_song = PlaylistSong.find(params[:id])
-    playlist_song.move_higher
-    redirect_to manage_playlist_playlist_songs_path(playlist_song.playlist_id)
-  end
+  # def move_up
+  #   playlist_song = PlaylistSong.find(params[:id])
+  #   playlist_song.move_higher
+  #   redirect_to manage_playlist_playlist_songs_path(playlist_song.playlist_id)
+  # end
 
-  def move_down
-    playlist_song = PlaylistSong.find(params[:id])
-    playlist_song.move_lower
-    redirect_to manage_playlist_playlist_songs_path(playlist_song.playlist_id)
-  end
+  # def move_down
+  #   playlist_song = PlaylistSong.find(params[:id])
+  #   playlist_song.move_lower
+  #   redirect_to manage_playlist_playlist_songs_path(playlist_song.playlist_id)
+  # end
+
+# Sortable
+def update_position
+  item = PlaylistSong.find(params[:id])
+  item.update(position: params[:new_position])
+  head :ok
+end
+
 
   private
 
@@ -87,5 +96,8 @@ class PlaylistSongsController < ApplicationController
     params.require(:playlist_song).permit(:message, :position )
   end
 
+  def set_default_position
+    self.position ||= playlist.playlist_songs.count + 1
+  end
 
 end
