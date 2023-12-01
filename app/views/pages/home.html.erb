@@ -17,7 +17,13 @@
               <li>List of reasons #helponchatgpt</li>
               <li>List of reasons #helponchatgpt</li>
             </ul>
-          <%= link_to "Create your play list", dashboard_path, class: "mt-3 btn btn-primary" %>
+
+          <% if user_signed_in? %>
+            <%= link_to "Create your playlist", new_playlist_path, class: "mt-3 btn btn-primary" %>
+          <% else %>
+            <%= link_to "Create your playlist", new_user_registration_path, class: "mt-3 btn btn-primary", onclick: "alert('Sorry, first you need to sign up!')" %>
+          <% end %>
+
         </div>
         <div class="col-md-4 rounded-5">
           <img src="https://media.istockphoto.com/id/1208670144/de/foto/portr%C3%A4t-von-attraktiven-jungen-afrikanischen-amerikanischen-m%C3%A4dchen-tragen-drahtlose-kopfh%C3%B6rer.jpg?s=1024x1024&w=is&k=20&c=aLxPSUUTgNKZavucGxlRwz1nthChw88f9emZJO3Zy-M=" class="img-fluid rounded-4" alt="music">

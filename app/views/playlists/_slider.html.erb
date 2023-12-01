@@ -1,0 +1,40 @@
+<div class="container">
+  <div id="songCarousel" class="carousel slide">
+    <div class="carousel-inner">
+
+      <% @playlist_songs.each_with_index do |playlist_song, index| %>
+        <div class="carousel-item <%= 'active' if index.zero? %>">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= playlist_song.song.title %></h5>
+              <h5 class="card-title"><%= playlist_song.song.artist %></h5>
+              <p class="card-text"><strong>Personal Message:</strong> <%= playlist_song.message %></p>
+              <!-- You can add other song details as needed -->
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <!-- Navigation buttons outside the carousel -->
+  <div class="text-center mt-3">
+    <button class="btn carousel-control-prev" type="button" data-bs-target="#songCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="btn  carousel-control-next" type="button" data-bs-target="#songCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var myCarousel = new bootstrap.Carousel(document.getElementById('songCarousel'), {
+      interval: false // Set interval to false to disable automatic sliding
+    });
+  });
+</script>
