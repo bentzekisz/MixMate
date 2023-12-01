@@ -27,6 +27,7 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
+    
     if @playlist.save
       redirect_to dashboard_path
     else

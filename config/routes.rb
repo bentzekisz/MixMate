@@ -11,24 +11,27 @@ Rails.application.routes.draw do
   # Dashboard route
   get 'dashboard', to: 'playlists#dashboard'
 
+    # Route for updating position
+    post '/update_position', to: 'playlist_songs#update_position'
+
   # Resources for playlists and nested playlist_songs
   resources :playlists do
     member do
+      get "share/:uuid", to: "playlists#receiver_view", as: :share
       get :preview
       get :confirmation
-            # New route for receiver_view
-            #get 'receiver_view/:uuid', to: 'playlists#receiver_view', as: :receiver_view
-            # Simplified route for receiver_view for development purposes
+
+      # New route for receiver_view
+      #get 'receiver_view/:uuid', to: 'playlists#receiver_view', as: :receiver_view
+      # Simplified route for receiver_view for development purposes
+
       get 'receiver_view', to: 'playlists#receiver_view', as: :receiver_view
 
     end
 
     resources :playlist_songs do
       get 'manage', on: :collection
-      member do
-        patch :move_up
-        patch :move_down
-      end
     end
   end
+
 end

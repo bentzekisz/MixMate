@@ -1,9 +1,8 @@
 <div class="container">
-<%
-=begin%>
- <%= link_to "(This will be the SHARE button but for now it only links to the receiver's side)", receiver_view_playlist_path(uuid: @playlist.uuid), class: 'btn btn-primary' %>
-<%
-=end%>
+  <div data-controller="clipboard"  data-clipboard-feedback-text-value="Copied!">
+    <%= link_to "(share)",   share_playlist_url(id: @playlist.id, uuid:  @playlist.uuid ), data: { clipboard_target: "link" , action: "click->clipboard#copy"}, class: 'btn btn-primary' %>
+  </div>
+
 <%= link_to "View Playlist", receiver_view_playlist_path(@playlist), class: 'btn btn-primary' %>
 
   <h1>Preview</h1>
@@ -27,7 +26,7 @@
       <% end %>
     </div>
   <% else %>
-    <%= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
+    <%#= link_to 'Add New Song', new_playlist_playlist_song_path(playlist_id: @playlist), class: 'btn btn-primary' %>
   <% end %>
 
     <!-- Add navigation buttons -->
