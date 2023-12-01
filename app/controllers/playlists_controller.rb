@@ -63,6 +63,11 @@ class PlaylistsController < ApplicationController
     @playlist_songs = @playlist.playlist_songs.includes(:song)
   end
 
+  def receiver_view
+    @playlist = Playlist.find_by(uuid: params[:uuid])
+    @playlist_songs = @playlist.playlist_songs if @playlist
+  end
+
   private
 
   def set_playlist
