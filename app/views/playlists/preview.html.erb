@@ -1,7 +1,7 @@
 <div class="container">
 <%
 =begin%>
- <%= link_to "(This will be the SHARE button but for now it only links to the receiver's side)", receiver_view_playlist_path(uuid: @playlist.uuid), class: 'btn btn-primary' %>
+ <%= link_to "(This will be the SHARE button)", receiver_view_playlist_path(uuid: @playlist.uuid), class: 'btn btn-primary' %>
 <%
 =end%>
 <%= link_to "View Playlist", receiver_view_playlist_path(@playlist), class: 'btn btn-primary' %>
