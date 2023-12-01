@@ -5,27 +5,14 @@
   <p class="text-danger">Playlist is full. You cannot add another song.</p>
 <% else %>
   <%= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
+<%= link_to 'Edit Playlist Properties', edit_playlist_path(@playlist), class: 'btn btn-primary' %>
 <% end %>
 <h1><%= @playlist.title %></h1>
 <h2>From: <%= @playlist.from_name %></h2>
 <h2>To: <%= @playlist.to_name %></h2>
 <p><%= @playlist.general_message %></p>
-<%= link_to 'Edit Playlist Properties', edit_playlist_path(@playlist), class: 'btn btn-primary' %>
 
-<% if @playlist_songs.any? %>
-  <ul id="sortable-list">
-    <% @playlist_songs.each do |playlist_song| %>
-      <li data-id="<%= playlist_song.id %>">
-        <%= link_to "#{playlist_song.song.title} - #{playlist_song.song.artist}", preview_playlist_path(playlist_song.playlist), method: :get %>
-        <p>Message: <%= playlist_song.message %></p>
-        <%= link_to 'Edit', edit_playlist_playlist_song_path(@playlist, playlist_song) %> |
-        <%= link_to 'Delete', playlist_playlist_song_path(@playlist, playlist_song), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!" } %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No songs in this playlist.</p>
-<% end %>
+
 
 <% if @playlist_songs.any? %>
   <div id="sortable-grid" class="grid-layout">
