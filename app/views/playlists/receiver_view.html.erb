@@ -3,10 +3,6 @@
   <h2>Dear ...</h2>
 
   <% @playlist.playlist_songs.each do |playlist_song| %>
-    <%= link_to like_playlist_song_path(playlist_song), method: :put do %>
-      Like
-    <% end %>
-    Likes: <%= playlist_song.get_upvotes.size %>
   <% end %>
 
   <%= render "slider" %>
