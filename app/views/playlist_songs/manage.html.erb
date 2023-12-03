@@ -5,14 +5,12 @@
   <p class="text-danger">Playlist is full. You cannot add another song.</p>
 <% else %>
   <%= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-primary' %>
-<%= link_to 'Edit Playlist Properties', edit_playlist_path(@playlist), class: 'btn btn-primary' %>
 <% end %>
+<%= link_to 'Edit Playlist Properties', edit_playlist_path(@playlist), class: 'btn btn-primary' %>
 <h1><%= @playlist.title %></h1>
 <h2>From: <%= @playlist.from_name %></h2>
 <h2>To: <%= @playlist.to_name %></h2>
 <p><%= @playlist.general_message %></p>
-
-
 
 <% if @playlist_songs.any? %>
   <div id="sortable-grid" class="grid-layout">
@@ -28,21 +26,35 @@
 <% else %>
   <p>No songs in this playlist.</p>
 <% end %>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
 <script>
-  // Ensure this script runs after the page is loaded
   document.addEventListener('DOMContentLoaded', function () {
     const el = document.getElementById('sortable-grid');
     if (el) {
       new Sortable(el, {
-        onEnd: function (evt) {
-          // Add the logic to update the order in your database
-          // This can be an AJAX request to your Rails backend
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        onEnd: function(evt) {
+          let order = this.toArray();
+
+          fetch('/update_playlist_order', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+            },
+            body: JSON.stringify({ playlist_id: "<%= @playlist.id %>", order: order })
+          }).then(response => {
+            if (response.ok) {
+              console.log('Order updated');
+            } else {
+              console.error('Error updating order');
+            }
+          });
         }
       });
     }
   });
 </script>
 
-<%= link_to 'All DONE', preview_playlist_path(@playlist), class: 'btn btn-primary' %>
+<%= link_to 'Preview Playlist', preview_playlist_path(@playlist), class: 'btn btn-primary' %>

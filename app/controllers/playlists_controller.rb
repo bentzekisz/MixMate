@@ -27,7 +27,7 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
-    
+
     if @playlist.save
       redirect_to dashboard_path
     else
@@ -42,6 +42,11 @@ class PlaylistsController < ApplicationController
     @playlist.update(playlist_params)
     redirect_to manage_playlist_playlist_songs_path(@playlist)
   end
+
+def update_position
+  @playlist_song = PlaylistSong.find(params[:id])
+  @playlist_song.update(position: params[:position])
+end
 
   def destroy
     @playlist = Playlist.find(params[:id])
@@ -78,4 +83,10 @@ class PlaylistsController < ApplicationController
   def playlist_params
     params.require(:playlist).permit(:title, :general_message, :from_name, :to_name)
   end
+end
+def update_position
+  @playlist_song = PlaylistSong.find(params[:id])
+  @playlist_song.update(position: params[:position])
+
+  head :ok
 end
