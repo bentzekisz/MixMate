@@ -51,7 +51,9 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem 'rspotify'
+gem 'acts_as_votable'
 # gem 'acts_as_list'
+
 
 group :development, :test do
   gem 'pry'

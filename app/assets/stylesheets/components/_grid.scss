@@ -1,13 +1,38 @@
-.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-}
+            .grid-layout {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+            }
 
-.grid-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-    cursor: move;
-    /* Optional: Changes the cursor to indicate draggable items */
-}
+            .grid-item {
+                border: 1px solid #ccc;
+                padding: 10px;
+                background-color: #f9f9f9;
+                cursor: move;
+                /* Optional: Changes the cursor to indicate draggable items */
+                border-radius: 8px; // Add border radius here
+                .place-number {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: black; // Change font color to black
+                    margin-bottom: 8px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: #ccc;
+                }
+                .message {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    font-family: "Helvetica Neue", Arial, sans-serif;
+                    color: #000000;
+                    padding: 10px;
+                    border-radius: 8px;
+                    margin-top: 10px;
+                }
+            }
