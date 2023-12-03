@@ -78,6 +78,12 @@ class PlaylistSongsController < ApplicationController
     head :ok
   end
 
+  def upvote
+    @playlist_song = PlaylistSong.find(params[:id])
+    @playlist_song.upvote_by current_user
+    redirect_to @playlist_song
+  end
+
   private
 
   def set_playlist_song

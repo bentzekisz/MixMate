@@ -1,5 +1,6 @@
 class PlaylistSong < ApplicationRecord
   # acts_as_list scope: :playlist
+  acts_as_votable
   belongs_to :playlist
   belongs_to :song
 

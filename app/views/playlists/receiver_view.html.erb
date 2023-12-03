@@ -1,6 +1,13 @@
 <div class="container">
-<h1>Receivers View</h1>
+  <h1>Receivers View</h1>
   <h2>Dear ...</h2>
 
-<%= render "slider" %>
+  <% @playlist.playlist_songs.each do |playlist_song| %>
+    <%= link_to like_playlist_song_path(playlist_song), method: :put do %>
+      <span class="glyphicon glyphicon-heart"></span>
+    <% end %>
+    Likes: <%= playlist_song.get_upvotes.size %>
+  <% end %>
+
+  <%= render "slider" %>
 </div>
