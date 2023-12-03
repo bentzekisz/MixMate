@@ -4,10 +4,9 @@
 
   <% @playlist.playlist_songs.each do |playlist_song| %>
     <%= link_to like_playlist_song_path(playlist_song), method: :put do %>
-      <span class="glyphicon glyphicon-heart"></span>
+      Like
     <% end %>
     Likes: <%= playlist_song.get_upvotes.size %>
   <% end %>
 
   <%= render "slider" %>
-</div>

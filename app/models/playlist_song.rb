@@ -22,4 +22,10 @@ class PlaylistSong < ApplicationRecord
     self.position = (PlaylistSong.where(playlist_id: playlist_id).maximum(:position) || 0) + 1
   end
 
+  # BEGIN: ed8c6549bwf9
+  def like(user)
+    self.liked_by(user)
+  end
+  # END: ed8c6549bwf9
+
 end
