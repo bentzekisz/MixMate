@@ -1,4 +1,3 @@
-
 <%= link_to 'Back to Dashboard', dashboard_path, class: 'btn btn-secondary' %>
 
 <% if @playlist_songs.count >= 12 %>
@@ -26,35 +25,38 @@
 <% else %>
   <p>No songs in this playlist.</p>
 <% end %>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const el = document.getElementById('sortable-grid');
-    if (el) {
-      new Sortable(el, {
-        animation: 150,
-        ghostClass: 'sortable-ghost',
-        onEnd: function(evt) {
-          let order = this.toArray();
 
-          fetch('/update_playlist_order', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
-            },
-            body: JSON.stringify({ playlist_id: "<%= @playlist.id %>", order: order })
-          }).then(response => {
-            if (response.ok) {
-              console.log('Order updated');
-            } else {
-              console.error('Error updating order');
-            }
-          });
-        }
-      });
-    }
-  });
-</script>
+<%= turbo_stream_from 'sortable-grid' %>
+
+
+
+  <script>
+    document.addEventListener('turbo:load', function () {
+      const gridElement = document.getElementById('sortable-grid');
+      if (gridElement) {
+        new Sortable(gridElement, {
+          animation: 150,
+          ghostClass: 'sortable-ghost',
+          onEnd: function(evt) {
+            const order = this.toArray();
+            fetch('/update_playlist_order', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+              },
+              body: JSON.stringify({ playlist_id: "<%= @playlist.id %>", order: order })
+            }).then(response => {
+              if (response.ok) {
+                console.log('Order updated');
+              } else {
+                console.error('Error updating order');
+              }
+            });
+          }
+        });
+      }
+    });
+  </script>
 
 <%= link_to 'Preview Playlist', preview_playlist_path(@playlist), class: 'btn btn-primary' %>

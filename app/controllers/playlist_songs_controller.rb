@@ -24,8 +24,10 @@ class PlaylistSongsController < ApplicationController
     @playlist_song.song = @song
     @playlist_song.playlist = @playlist
 
+
+
     if @playlist_song.save
-      redirect_to edit_playlist_playlist_song_path(@playlist, @playlist_song)
+      redirect_to edit_playlist_playlist_song_path(@playlist, @playlist_song), notice: 'Song was successfully added.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -44,6 +46,7 @@ class PlaylistSongsController < ApplicationController
   end
 
   def update
+    @playlist = Playlist.find(params[:playlist_id])
     @playlist_song = PlaylistSong.find(params[:id])
 
     if @playlist_song.update(playlist_song_params)
@@ -82,7 +85,7 @@ class PlaylistSongsController < ApplicationController
   end
 
   def playlist_song_params
-    params.require(:playlist_song).permit(:message, :position)
+    params.require(:playlist_song).permit(:message, :position, :song_id, :message)
   end
 
   def set_default_position
