@@ -50,7 +50,7 @@ class PlaylistSongsController < ApplicationController
     @playlist_song = PlaylistSong.find(params[:id])
 
     if @playlist_song.update(playlist_song_params)
-      redirect_to manage_playlist_playlist_songs_path(@playlist_song.playlist, @playlist_song), notice: 'Message saved successfully!'
+      redirect_to manage_playlist_playlist_songs_path(@playlist), notice: 'Message saved successfully!'
     else
       render :edit
     end
@@ -72,16 +72,19 @@ class PlaylistSongsController < ApplicationController
     end
   end
 
+  # def update_position
+  #   item = PlaylistSong.find(params[:id])
+  #   item.update(position: params[:new_position])
+  #   head :ok
+  # end
+
   def update_position
     item = PlaylistSong.find(params[:id])
-    item.update(position: params[:new_position])
-    head :ok
-  end
-
-  def upvote
-    @playlist_song = PlaylistSong.find(params[:id])
-    @playlist_song.upvote_by current_user
-    redirect_to @playlist_song
+    if item.update(position: params[:new_position])
+      head :ok
+    else
+      render json: { error: "Failed to update position" }, status: :unprocessable_entity
+    end
   end
 
   private
@@ -91,7 +94,7 @@ class PlaylistSongsController < ApplicationController
   end
 
   def playlist_song_params
-    params.require(:playlist_song).permit(:message, :position, :song_id, :message)
+    params.require(:playlist_song).permit(:message, :position, :song_id,)
   end
 
   def set_default_position
