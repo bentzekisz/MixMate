@@ -1,35 +1,37 @@
 <div class="dashBG dashboard">
   <div class="container">
     <div class="cardDash p-5 shadow">
+      <div class="d-flex justify-content-between">
       <% if user_signed_in? %>
-        <h1>Hi <%= current_user.username %>! Here is your dashboard</h1>
+        <h1>Hi <%= @user.username %>! Here is your dashboard</h1>
 
- <div class="d-flex justify-content-center mb-4">
-      <%= link_to '/auth/spotify', method: :post, class: "link" do%>
-      <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
-      <% end %>
-    </div>
-
-        <% if @playlists.any? %>
-        <h3> Your Playlists </h3>
-            <% @playlists.each do |playlist| %>
-              <div class="row">
-                <div class="col-lg-4 col-md-3 col-sm-2">
-                  <div class="card p-3 mb-4">
-                  <%= link_to manage_playlist_playlist_songs_path(playlist_id: playlist.id) do %>
-                  <h4> <%= playlist.title %> </h4>
-                  <p> <strong>To: </strong><%= playlist.to_name %> </p>
-                    <%= link_to ('<i class="fa-solid fa-trash"></i>').html_safe, playlist_path(playlist),  method: :delete,  data: {turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the playlistwith all songs and personal messages, and CANNOT be reverted!"}, class: "d-flex justify-content-end"%>
-                  <% end %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-        <% else %>
-          <p>You don't have any playlists yet.</p>
+        <%= link_to '/auth/spotify', method: :post, class: "link" do%>
+        <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
         <% end %>
+      </div>
+      <% if @playlists.any? %>
+      <h3> Your Playlists </h3>
+        <div class="row">
+          <% @playlists.each do |playlist| %>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="card p-3 mb-4">
+                <%= link_to manage_playlist_playlist_songs_path(playlist_id: playlist.id) do %>
+                <h4> <%= playlist.title %> </h4>
+                <p> <strong>To: </strong><%= playlist.to_name %> </p>
+                <div class="d-flex justify-content-end">
+                    <%= link_to ('<i class="fa-solid fa-trash"></i>').html_safe, playlist_path(playlist),  method: :delete,  data: {turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the playlistwith all songs and personal messages, and CANNOT be reverted!"}%>
+                  <%= link_to ('<i class="fa-solid fa-pencil"></i>').html_safe, edit_playlist_path(playlist), class: "ms-2" %>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+      <% else %>
+        <p>You don't have any playlists yet.</p>
+      <% end %>
 
-        <%= link_to new_playlist_path, class: "link" do %>
+      <%= link_to new_playlist_path, class: "link" do %>
       <button class="button-64" role="button"><span class="text">Create New Playlist</span></button>
       <% end %>
       <% else %>
