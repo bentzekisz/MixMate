@@ -1,8 +1,14 @@
-<div class="container">
-  <h1>Receivers View</h1>
-  <h2>Dear ...</h2>
+<div class="preview">
+  <div class="container">
 
-  <% @playlist.playlist_songs.each do |playlist_song| %>
-  <% end %>
+    <div class="text-end">
+      <h1>Receivers View</h1>
+    </div>
 
-  <%= render "slider" %>
+
+    <% @playlist.playlist_songs.each do |playlist_song| %>
+    <% end %>
+
+    <%= render "slider" %>
+  </div>
+</div>
