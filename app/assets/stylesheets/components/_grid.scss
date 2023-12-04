@@ -1,38 +1,224 @@
-            .grid-layout {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 10px;
-            }
+    // General Container Styling
+    // .grid-item {
+    //     display: flex;
+    //     flex-direction: column;
+    //     cursor: move;
+    //     .badge {
+    //         background-color: gray;
+    //     }
+    //     .song-message {
+    //         order: 1; // Puts the message on top
+    //         // ...other styles...
+    //     }
+    //     .song-title {
+    //         order: 2; // Puts the song title and artist at the bottom
+    //         // ...other styles...
+    //     }
+    //     //
+    // }
+    .manage-container {
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        padding-bottom: 100px;
+    }
 
-            .grid-item {
-                border: 1px solid #ccc;
-                padding: 10px;
-                background-color: #f9f9f9;
-                cursor: move;
-                /* Optional: Changes the cursor to indicate draggable items */
-                border-radius: 8px; // Add border radius here
-                .place-number {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: bold;
-                    font-size: 14px;
-                    color: black; // Change font color to black
-                    margin-bottom: 8px;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 50%;
-                    background-color: #ccc;
-                }
-                .message {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 24px;
-                    font-family: "Helvetica Neue", Arial, sans-serif;
-                    color: #000000;
-                    padding: 10px;
-                    border-radius: 8px;
-                    margin-top: 10px;
-                }
+    .header-divider {
+        border: none;
+        height: 5px;
+        background-color: #ddd; // Or any color you prefer
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%; // Adjust this value to get the desired width
+        margin-left: auto; // These two margin properties will center the line horizontally
+        margin-right: auto;
+    }
+
+    // Titles and Subtitles
+    .manage-title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 15px;
+        padding-top: 50px;
+        color: #000000;
+    }
+
+    .manage-subtitle {
+        text-align: center;
+        font-weight: bold;
+        font-size: 26px;
+        margin-bottom: 10px;
+        color: rgba(217, 217, 217, 0.686)
+    }
+
+    .navigation-buttons {
+        position: fixed; // Fixed positioning relative to the viewport
+        bottom: 0; // Aligns the container to the bottom of the viewport
+        left: 0; // Aligns the container to the left of the viewport
+        width: 100%; // Ensures the container spans the full width of the screen
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 60px;
+        background-color: #ffffff00; // A background color is needed to cover content below
+        z-index: 1000; // Ensures the navigation buttons are above other content
+        // Add a box shadow or a border-top if you want to distinguish the navbar from the content below
+    }
+
+    .playlist-layout {
+        padding: 20px;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .playlist-info {
+        margin-bottom: 10px;
+        // Styles for the playlist info
+        h1 {
+            font-weight: 300;
+        }
+        .from-to-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; // Adjust the spacing between the elements
+            .badge,
+            h2 {
+                display: inline-flex; // Inline-flex to keep badge and text in line
+                align-items: center;
+                margin: 0; // Removes default margins
             }
+            .badge-from,
+            .badge-to {
+                margin-right: 2px;
+                background-color: #ffffff76;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    // Button Styles
+    .btn-modern {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+        margin: 5px;
+        &.btn-secondary {
+            border-radius: 15px;
+            background-color: #565b5f8f;
+            color: white;
+            &:hover {
+                background-color: #5a6268;
+            }
+        }
+        &.btn-success {
+            font-weight: 500;
+            border-radius: 15px;
+            background-color: #8b52febf;
+            color: white;
+            &:hover {
+                background-color: #7b48df;
+            }
+        }
+        &.btn-primary {
+            font-weight: 500;
+            border-radius: 10px;
+            background-color: #004cff97;
+            color: white;
+            &:hover {
+                background-color: #ff8c0097;
+            }
+        }
+        i {
+            margin-right: 8px;
+        }
+    }
+
+    // Badge for Warning
+    .badge-warning {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #dc3545;
+        color: white;
+        border-radius: 10px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    // Grid Layout
+    .grid-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    // Grid Item
+    .grid-item {
+        cursor: move;
+        border: 1px solid #ddd;
+        padding: 15px;
+        background-color: #f8f9fa59;
+        border-radius: 8px;
+        text-align: left;
+        .badge {
+            font-weight: 300;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(43, 43, 43, 0.837);
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .song-message {
+            text-align: center;
+            font-style: bold;
+            font-style: italic;
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 5px;
+            padding-bottom: 40px;
+            order: 1;
+        }
+        .song-title {
+            text-align: left;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            order: 2;
+        }
+        .action-link {
+            color: #2b2b2ba7;
+            cursor: pointer;
+            margin-left: auto; // Aligns the links to the right side
+            margin-right: 10px;
+            text-decoration: none;
+            &:hover {
+                color: #ff0202;
+            }
+            i {
+                margin-right: 4px;
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 768px) {
+        .grid-layout {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+        .manage-container {
+            padding-bottom: 70px;
+        }
+    }
