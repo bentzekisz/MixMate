@@ -1,4 +1,4 @@
-.form {
+.searchform {
   input[type=text] {
     width: 60%;
     padding: 12px 20px;
@@ -13,5 +13,17 @@
   input[type=text]:focus {
     border: 3px solid #5B42F3;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  }
+}
+
+.form {
+  .form-label {
+    color: #b7b7b7;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  h1 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #A17FE0;
   }
 }
