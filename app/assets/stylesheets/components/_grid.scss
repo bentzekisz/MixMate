@@ -110,12 +110,18 @@
         transition: background-color 0.3s, color 0.3s;
         cursor: pointer;
         margin: 5px;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
         &.btn-secondary {
             border-radius: 15px;
             background-color: #565b5f8f;
             color: white;
-            &:hover {
-                background-color: #5a6268;
+            &:hover,
+            &:focus {
+                text-decoration: none;
             }
         }
         &.btn-success {
