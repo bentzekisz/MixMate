@@ -4,11 +4,15 @@
       <h1>Add it to your playlist</h1>
     </div>
 
-    <div class="d-flex justify-content-center mb-4">
+    <%
+=begin%>
+ <div class="d-flex justify-content-center mb-4">
       <%= link_to '/auth/spotify', method: :post, class: "link" do%>
       <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
       <% end %>
-    </div>
+    </div> 
+<%
+=end%>
 
     <div data-controller="search">
       <%= form_with url: new_playlist_playlist_song_path, method: :get, class: "form",

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     OmniAuth.config.silence_get_warning = true
 
     # Redirect to the stored location (or a default location if none is stored)
-    redirect_to session[:previous_url] || new_playlist_playlist_song_path
+    redirect_to session[:previous_url] || dashboard_path
   end
 
   private
