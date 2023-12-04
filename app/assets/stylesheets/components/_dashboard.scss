@@ -7,6 +7,7 @@
 
   p {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #b7b7b7;
   }
 
   h3 {
@@ -27,5 +28,39 @@
   .card {
     background-color: #E0CCF3;
     border: none !important;
+
+    p {
+      color: white;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: #5D26C1;
+      color: white;
+    }
   }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
