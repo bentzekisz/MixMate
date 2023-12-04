@@ -31,13 +31,6 @@ post '/update_playlist_order', to: 'playlist_songs#update_playlist_order'
       get 'manage', on: :collection
     end
   end
-  
-  resources :playlist_songs do
-    member do
-      put "like", to: "playlist_songs#upvote"
-    end
-  end
-
 
 
   # BEGIN: ed8c6549bwf9
