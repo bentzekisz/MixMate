@@ -1,29 +1,29 @@
 <div class="container">
   <div>
-    <%= link_to 'go back', new_playlist_playlist_song_path(@playlist_song.playlist), class: 'btn btn-secondary' %>
+    <%= link_to 'go back', new_playlist_playlist_song_path(@playlist), class: 'btn btn-secondary' %>
   </div>
 
 <h1>Add you personal message to the song</h1>
   <div class="card">
 
-    <% if @playlist_song.present? %>
+
     <p><strong>Song:</strong> <%= @playlist_song.song.title %></p>
     <p><strong>Artist:</strong> <%= @playlist_song.song.artist %></p>
 
       <%= simple_form_for [@playlist, @playlist_song] do |f| %>
-        <div class="field">
+        <div class="">
           <%= f.label :message%>
-          <%= f.text_area :message %>
+          <%= f.input :message %>
+          <%= f.submit "UPDATE" %>
         </div>
       </div>
-          <button type="submit" class='btn btn-success'><i class="far fa-circle-check"></i></button>
+
       <% end %>
 
-      <% else %>
-        <p>No songs in this playlist.</p>
-      <% end %>
+
 
 
 <div>
-  <%= link_to 'go directly to step 3', manage_playlist_playlist_songs_path(@playlist_song.playlist), class: 'btn btn-primary' %>
+  <%= link_to 'go directly to step 3', manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-primary' %>
+</div>
 </div>
