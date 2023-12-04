@@ -1,0 +1,73 @@
+.preview {
+
+  h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #5D26C1;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #5D26C1;
+    font-weight: bold;
+    }
+
+  p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #5D26C1;
+  }
+
+  h4 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .card-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #5D26C1;
+
+  }
+  .card {
+    height: 515px;
+    width: 800px;
+    background-image: linear-gradient(rgba(243, 240, 240, 0.5), rgba(234, 233, 233, 0.5)), url(mixtape.png); // Adjust the path as needed
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-color: #5D26C1;
+    border-style: double;
+    margin-bottom: 200px;
+
+  }
+
+
+  .card-message {
+    background-color: #E0CCF3;
+    border-radius: 60px;
+    height: 100px;
+    margin-bottom: 50px;
+    justify-content: bottom;
+    padding-top: 20px;
+    padding-left: 25px;
+
+  }
+
+  .fa-play {
+    color: #5D26C1;
+  }
+}

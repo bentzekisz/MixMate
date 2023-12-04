@@ -1,28 +1,25 @@
-<div class="container">
-  <div data-controller="clipboard"  data-clipboard-feedback-text-value="Copied!">
-    <%= link_to "(share)",   share_playlist_url(id: @playlist.id, uuid:  @playlist.uuid ), data: { clipboard_target: "link" , action: "click->clipboard#copy"}, class: 'btn btn-primary' %>
+<div class="preview">
+  <div class="d-flex justify-content-between" style="margin-top: 20px; margin-right: 20px; margin-left: 20px;">
+    <%= link_to "(View Reveivers view)", receiver_view_playlist_path(@playlist), class: 'btn button-64' %>
+    <%= link_to "(share)", share_playlist_url(id: @playlist.id, uuid: @playlist.uuid), data: { clipboard_target: "link", action: "click->clipboard#copy" }, class: 'btn fa-solid fa-share-nodes' %>
   </div>
 
-  <%= link_to "View Playlist", receiver_view_playlist_path(@playlist), class: 'btn btn-primary' %>
-
-  <h1>Preview</h1>
-  <h2>Dear ...</h2>
+  <div class="container">
+    <!-- Move the h1 "Preview" to the top right -->
+    <div class="text-end">
+      <h1>Preview</h1>
+    </div>
 
     <% @playlist.playlist_songs.each do |playlist_song| %>
-<% end %>
+      <!-- Your song content here -->
+    <% end %>
 
-  <%= render "slider" %>
+    <%= render "slider" %>
 
-
-
-  <div class="d-flex justify-content-between">
-    <%= link_to "Back to rearrange", manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-secondary' %>
-    <%= link_to "Confirmation", confirmation_playlist_path(@playlist), class: 'btn btn-primary' %>
+    <div class="fixed-bottom d-flex justify-content-between mt-3" style="margin-bottom: 20px; margin-right: 20px; margin-left: 20px;">
+      <%= link_to "Back to rearrange", manage_playlist_playlist_songs_path(@playlist), class: 'btn button-64' %>
+      <%= link_to "Confirmation", confirmation_playlist_path(@playlist), class: 'btn button-64' %>
+    </div>
   </div>
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    new bootstrap.Carousel(document.getElementById('songCarousel'));
-  });
-</script>
