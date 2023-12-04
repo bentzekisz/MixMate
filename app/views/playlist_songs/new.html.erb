@@ -10,12 +10,12 @@
       <%= link_to '/auth/spotify', method: :post, class: "link" do%>
       <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
       <% end %>
-    </div> 
+    </div>
 <%
 =end%>
 
     <div data-controller="search">
-      <%= form_with url: new_playlist_playlist_song_path, method: :get, class: "form",
+      <%= form_with url: new_playlist_playlist_song_path, method: :get, class: "searchform",
           html: {data: {search_target: "form"}} do |f| %>
         <%= f.text_field :search, placeholder: "Search for a song", value: params[:query], data: {search_target: "input", action: "keyup->search#update"} %>
       <% end %>
