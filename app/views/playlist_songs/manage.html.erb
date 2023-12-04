@@ -28,6 +28,7 @@
 <% end %>
 
 <%= turbo_stream_from 'sortable-grid' %>
+<%= link_to 'Preview Playlist', preview_playlist_path(@playlist), class: 'btn btn-primary' %>
 
 <script>
   document.addEventListener('turbo:load', function () {
@@ -67,5 +68,3 @@
     });
   }
 </script>
-
-<%= link_to 'Preview Playlist', preview_playlist_path(@playlist), class: 'btn btn-primary' %>
