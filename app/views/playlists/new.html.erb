@@ -1,5 +1,11 @@
-<h1>Create your Playlist</h1>
+<div class="container">
+  <div class="cardDash p-5 shadow">
+    <div class="form">
+      <h1>Create your Playlist</h1>
 
-<%= render "form", playlist: @playlist %>
+      <%= render "form", playlist: @playlist %>
 
-<%= link_to "Back", dashboard_path %>
+      <%= link_to ('<i class="fa-solid fa-backward"></i>').html_safe, dashboard_path, class: "back" %>
+    </div>
+  </div>
+</div>
