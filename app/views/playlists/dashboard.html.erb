@@ -4,6 +4,12 @@
       <% if user_signed_in? %>
         <h1>Hi <%= current_user.username %>! Here is your dashboard</h1>
 
+ <div class="d-flex justify-content-center mb-4">
+      <%= link_to '/auth/spotify', method: :post, class: "link" do%>
+      <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
+      <% end %>
+    </div>
+
         <% if @playlists.any? %>
         <h3> Your Playlists </h3>
             <% @playlists.each do |playlist| %>
