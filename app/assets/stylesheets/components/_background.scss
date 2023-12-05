@@ -180,7 +180,7 @@ h1.home-title {
     /* Vertically centers content */
     align-items: center;
     /* Horizontally centers content */
-    padding: 100px 20px;
+    padding: 100px 0px;
     /* Adds padding around the content */
     // background-color: white;
     /* Modern, clean background color */
@@ -189,7 +189,7 @@ h1.home-title {
     text-align: center;
     /* Centers the text */
     margin-bottom: 0px;
-    margin-top: 500px;
+    margin-top: 50px;
 }
 
 #howto-section h3 {
@@ -210,6 +210,53 @@ h1.home-title {
     /* Space after the paragraph */
 }
 
+#howto-section .step {
+    display: flex;
+    flex-direction: column; // Stack elements vertically
+    align-items: center; // Center-align items
+    margin-bottom: 30px;
+}
+
+.step-badge {
+    background-color: #00000074;
+    /* Adjust the color to fit your design */
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 20px;
+    flex-shrink: 0;
+    /* Prevents the badge from shrinking */
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-content p {
+    margin: 0;
+    /* Adjust as needed */
+    font-size: 1.2rem;
+    /* Adjust size as needed */
+}
+
+@media (max-width: $breakpoint-sm) {
+    #howto-section .step {
+        flex-direction: column;
+        align-items: center;
+    }
+    .step-badge {
+        margin-bottom: 10px;
+    }
+    .step-content {
+        text-align: center;
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -222,6 +269,7 @@ html {
     height: 100px;
     padding: 0 50px;
     color: rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
     @media (max-width: $breakpoint-sm) {
         // Styles for small screens
         flex-direction: column;
@@ -264,7 +312,7 @@ html {
 }
 
 .sticky-button button {
-    background-color: #FF6B6B;
+    background-color: #ff6b6b7f;
     /* A modern, eye-catching color */
     color: white;
     border: none;
@@ -296,3 +344,32 @@ html {
         /* Adjust for smaller screens */
     }
 }
+
+// Define new class for Start button
+.start-button {
+    background-color: #FF6B6B; // Same background color as sticky button
+    color: white;
+    border: none;
+    border-radius: 15px; // Same border radius
+    padding: 15px 30px; // Same padding
+    cursor: pointer;
+    font-size: 1.2rem; // Same font size
+    font-weight: bold; // Same font weight
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); // Same box shadow
+    transition: background-color 0.3s, transform 0.3s; // Same transition
+    &:hover {
+        background-color: #FF5050; // Same hover effect
+        transform: translateY(-2px); // Same transform effect
+    }
+}
+
+.start-button-1 {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.start-button-2 {
+    margin-bottom: 70px;
+}
+
+// Existing styles for other elements...

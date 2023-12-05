@@ -7,6 +7,7 @@
   <%= link_to "What is MIX/MATE?", "#introduction-section", class: "btn btn-modern", onclick: "smoothScrollTo(event, 'introduction-section')" %>
 <%= link_to "How to use MIX/MATE?", "#howto-section", class: "btn btn-modern", onclick: "smoothScrollTo(event, 'howto-section')" %>
   </div>
+<button id="dashboard-button" class="start-button start-button-1">START</button>
 
   <div id="introduction-section" class="home-unique-section">
     <h3>Welcome to MIX\MATE - Your Personalized Playlist Heaven</h3>
@@ -23,21 +24,37 @@ You're the DJ at MIX\MATE. Customize your playlists, add personal messages, and 
   </div>
 
   <!-- How to use MIX\MATE Section -->
-  <div id="howto-section" class="home-unique-section">
+<div id="howto-section" class="home-unique-section">
     <h3>How MIX\MATE Works - Simple Steps to Your Perfect Playlist</h3>
-    <p>How MIX\MATE Works - Simple Steps to Your Perfect Playlist**
+    <div class="step" id="step1">
+        <div class="step-badge">1</div>
+        <div class="step-content">
+            <p><b>Connect with Spotify</b><br> Start by linking your Spotify account. This gives you access to an expansive music library and ensures seamless integration of your favorite tunes.</p>
+        </div>
+    </div>
+    <div class="step" id="step2">
+        <div class="step-badge">2</div>
+        <div class="step-content">
+            <p><b>Create Your Playlist</b><br> Dive into the world of endless music. Select songs that resonate with your mood, occasion, or memory. MIX\MATE's intuitive interface makes it easy to search, listen, and add songs to your playlist.</p>
+        </div>
+    </div>
+    <div class="step" id="step3">
+        <div class="step-badge">3</div>
+        <div class="step-content">
+            <p><b>Personalize Your Message</b><br> Add a personal touch! For each song, you can write a heartfelt message, share a memory, or simply describe why this track made it to your list. It's all about making each playlist uniquely yours.</p>
+        </div>
+    </div>
+    <div class="step" id="step4">
+        <div class="step-badge">4</div>
+        <div class="step-content">
+            <p><b>Share and Enjoy</b><br> Once your playlist is set, share it with friends, family, or the world. Whether it's a thoughtful gift or a party mix, your playlist is ready to make waves.</p>
+        </div>
+    </div>
+</div>
+<div class="home-start-button">
+    <button id="dashboard-button-2" class="start-button start-button-2">START</button>
+</div>
 
-1. **Connect with Spotify**: Start by linking your Spotify account. This gives you access to an expansive music library and ensures seamless integration of your favorite tunes.
-
-2. **Create Your Playlist**: Dive into the world of endless music. Select songs that resonate with your mood, occasion, or memory. MIX\MATE's intuitive interface makes it easy to search, listen, and add songs to your playlist.
-
-3. **Personalize Your Message**: Add a personal touch! For each song, you can write a heartfelt message, share a memory, or simply describe why this track made it to your list. It's all about making each playlist uniquely yours.
-
-4. **Share and Enjoy**: Once your playlist is set, share it with friends, family, or the world. Whether it's a thoughtful gift or a party mix, your playlist is ready to make waves.
-
-And just like that, you're done! Creating the perfect playlist is that simple with MIX\MATE. Start your musical adventure now and let every playlist tell a story.
-</p>
-  </div>
 
   <!-- Other sections... -->
 
@@ -59,15 +76,20 @@ And just like that, you're done! Creating the perfect playlist is that simple wi
 </footer>
 </div>
 
-<div class="sticky-button">
-    <button id="dashboard-button">Start</button>
-</div>
+
 <script>
     const dashboardButton = document.getElementById('dashboard-button');
     dashboardButton.addEventListener('click', () => {
         window.location.href = '/dashboard';
     });
 </script>
+
+<script>
+    const dashboardButton2 = document.getElementById('dashboard-button-2');
+    dashboardButton2.addEventListener('click', () => {
+        window.location.href = '/dashboard';
+    });
+    </script>
 
 <script>
   function smoothScrollTo(event, sectionId) {
