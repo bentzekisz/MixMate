@@ -1,60 +1,298 @@
+// Define breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
 .conBG {
-  background-image: url("https://images.unsplash.com/photo-1582220107107-590dc8b0fad3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG11c2ljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D"); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Optional: fixed or scroll, depending on whether you want the background to scroll with the content or stay fixed */
+    background: linear-gradient(90deg, rgba(140, 82, 255, 1) 0%, rgba(0, 191, 99, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 20px;
+    align-items: center;
+    // Add responsive adjustments here
+    @media (max-width: $breakpoint-md) {
+        // Styles for medium screens and below
+    }
 }
 
+.dashBG {
+    // Keep this class unchanged as requested
+    background: linear-gradient(90deg, rgba(140, 82, 255, 1) 0%, rgba(0, 191, 99, 1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
+// General styles
+body {
+    background: linear-gradient(90deg, rgba(140, 82, 255, 1) 0%, rgba(0, 191, 99, 1) 100%);
+}
+
+.pt {
+    padding-top: 0;
+}
+
+// Footer styles
+.footer {
+    background: #F4F4F4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 50px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a {
+    color: black;
+    opacity: 0.15;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0 10px;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.footer .fa-heart {
+    color: #D23333;
+}
+
+// Card styles
+.card {
+    border-radius: 10px !important;
+}
+
+// Logo styles
 .logo {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #333; /* Add a 2px solid border with color #333 */
+    width: 100px;
+    height: 100px;
+    border: 2px solid #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1.home-title {
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 30px;
+    /* Eliminate any default top margin */
+    /* Other styles */
+}
+
+.home-logo-container {
+    width: 100%;
+    /* Takes full width of its parent */
+    display: flex;
+    justify-content: center;
+    /* Centers the logo horizontally */
+    align-items: center;
+    /* Centers the logo vertically */
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.home-logo {
+    width: 50%;
+    /* Logo takes 50% of its container's width */
+    height: auto;
+    /* Maintains aspect ratio */
+}
+
+#introduction-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically centers content */
+    align-items: center;
+    /* Horizontally centers content */
+    padding: 20px 10px;
+    padding-top: 100px;
+    /* Adds padding around the content */
+    // background-color: white;
+    /* Modern, clean background color */
+    border: none;
+    /* Optional: remove or style the border */
+    text-align: center;
+    /* Centers the text */
+}
+
+#introduction-section h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    /* Larger, modern font size for the heading */
+    margin-bottom: 20px;
+    /* Space between heading and paragraph */
+}
+
+#introduction-section p {
+    font-size: 1.5rem;
+    /* Comfortable reading size for paragraph */
+    max-width: 800px;
+    /* Restricts the width of the paragraph */
+    line-height: 1.6;
+    /* Good line spacing for readability */
+    margin-bottom: 30px;
+    /* Space after the paragraph */
+}
+
+// Styles for home-start-button
+.home-start-button .btn-modern {
+    background-color: #683ab787; // Initial background color
+    color: white; // Text color
+    border: none;
+    border-radius: 20px; // Rounded borders
+    padding: 10px 25px; // Padding
+    font-size: 1rem; // Font size
+    font-weight: bold; // Bold text
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); // Shadow for depth
+    transition: all 0.3s ease; // Smooth transition
+    text-transform: uppercase; // Uppercase text
+    letter-spacing: 1px; // Letter spacing
+    cursor: pointer; // Cursor
+}
+
+.home-start-button .btn-modern:hover {
+    background-color: #7f4fd3; // Darker shade for hover state
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Enhanced shadow on hover
+    transform: translateY(-2px); // Lift effect on hover
+}
+
+#howto-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically centers content */
+    align-items: center;
+    /* Horizontally centers content */
+    padding: 100px 20px;
+    /* Adds padding around the content */
+    // background-color: white;
+    /* Modern, clean background color */
+    border: none;
+    /* Optional: remove or style the border */
+    text-align: center;
+    /* Centers the text */
+    margin-bottom: 0px;
+    margin-top: 500px;
+}
+
+#howto-section h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    /* Larger, modern font size for the heading */
+    margin-bottom: 20px;
+    /* Space between heading and paragraph */
+}
+
+#howto-section p {
+    font-size: 1.5rem;
+    /* Comfortable reading size for paragraph */
+    max-width: 800px;
+    /* Restricts the width of the paragraph */
+    line-height: 1.6;
+    /* Good line spacing for readability */
+    /* Space after the paragraph */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .footer {
-  background: #F4F4F4;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-}
-.footer-links {
-  display: flex;
-  align-items: center;
-}
-.footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
-}
-.footer-links a:hover {
-  opacity: 1;
-}
-.footer .fa-heart {
-  color: #D23333;
-}
-.pt {
-  padding-top: 100px;
+    background: #f4f4f400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 50px;
+    color: rgba(0, 0, 0, 0.3);
+    @media (max-width: $breakpoint-sm) {
+        // Styles for small screens
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
-.card {
-  border-radius: 10px !important;
+.footer-content {
+    text-align: center;
 }
 
-body {
-  background: rgb(140,82,255);
-  background: linear-gradient(90deg, rgba(140,82,255,1) 0%, rgba(0,191,99,1) 100%);
+.footer-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
-.dashBG {
-  background: rgb(140,82,255);
-  background: linear-gradient(90deg, rgba(140,82,255,1) 0%, rgba(0,191,99,1) 100%);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons a {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.sticky-button {
+    position: fixed;
+    left: 50%;
+    bottom: 120px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.sticky-button button {
+    background-color: #FF6B6B;
+    /* A modern, eye-catching color */
+    color: white;
+    border: none;
+    border-radius: 15px;
+    /* More pronounced border-radius for a modern look */
+    padding: 15px 30px;
+    /* Bigger padding for a larger button */
+    cursor: pointer;
+    font-size: 1.2rem;
+    /* Larger text for prominence */
+    font-weight: bold;
+    /* Bold text for better visibility */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Smooth transition for hover effects */
+}
+
+.sticky-button button:hover {
+    background-color: #FF5050;
+    /* A slightly darker shade for the hover state */
+    transform: translateY(-2px);
+    /* A subtle lift effect on hover */
+}
+
+@media (max-width: $breakpoint-sm) {
+    .sticky-button {
+        bottom: 60px;
+        /* Adjust for smaller screens */
+    }
 }

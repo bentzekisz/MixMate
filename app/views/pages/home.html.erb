@@ -1,191 +1,87 @@
 <div class="conBG text-light">
-      <h1 class="pt d-flex justify-content-center text-light">Beets smooth <br> Like Butter</h1>
-      <div class="row justify-content-center mt-5">
-        <div class="col text-center rounded-5">
-          <%= link_to "Start now", dashboard_path, class: "btn-lg btn btn-primary" %>
-        </div>
-      </div>
-      <div class="row mt-5 justify-content-center">
-        <div class="col-md-4">
-          <h3>What makes us unique?</h3>
-          <p>Short Description #helponchatgpt: Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            sed diam voluptua. At vero eos et accusam et justo duo</p>
-            <ul>
-              <li>List of reasons #helponchatgpt</li>
-              <li>List of reasons #helponchatgpt</li>
-              <li>List of reasons #helponchatgpt</li>
-              <li>List of reasons #helponchatgpt</li>
-            </ul>
-
-          <% if user_signed_in? %>
-            <%= link_to "Create your playlist", new_playlist_path, class: "mt-3 btn btn-primary" %>
-          <% else %>
-            <%= link_to "Create your playlist", new_user_registration_path, class: "mt-3 btn btn-primary", onclick: "alert('Sorry, first you need to sign up!')" %>
-          <% end %>
-
-        </div>
-        <div class="col-md-4 rounded-5">
-          <img src="https://media.istockphoto.com/id/1208670144/de/foto/portr%C3%A4t-von-attraktiven-jungen-afrikanischen-amerikanischen-m%C3%A4dchen-tragen-drahtlose-kopfh%C3%B6rer.jpg?s=1024x1024&w=is&k=20&c=aLxPSUUTgNKZavucGxlRwz1nthChw88f9emZJO3Zy-M=" class="img-fluid rounded-4" alt="music">
-        </div>
-      </div>
-      <div class="d-flex justify-content-center mt-5">
-        <section>
-        <h3>Write messages <br> and share tunes</h3>
-      </div>
-      <div class="row ms-5 me-5">
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/1171092500/de/foto/gl%C3%BCcklicher-afrikanischer-mann-im-hut-singen-in-smartphone-wie-mikrofon.jpg?s=1024x1024&w=is&k=20&c=Mjf8W7ZjRJGcy7Z4XdMj7Blk6-FMQkCeRQySlu_Z8ss=" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Blues</h4> <p>Read message <br> play now</p>
-          </div>
-          </div>
-
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/685111998/de/foto/junge-m%C3%A4dchen-tanzen-zur-musik.jpg?s=1024x1024&w=is&k=20&c=BDR9HYJXB_s0yQwlWdU8GyMHbPtEFp-OSOI7cpLTBqs=" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Pop</h4>  <p>Read message <br> play now</p>
-          </div>
-          </div>
-
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/685111998/de/foto/junge-m%C3%A4dchen-tanzen-zur-musik.jpg?s=1024x1024&w=is&k=20&c=BDR9HYJXB_s0yQwlWdU8GyMHbPtEFp-OSOI7cpLTBqs=" class="logo rounded-4" alt="music" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Rock</h4>  <p>Read message <br> play now</p>
-          </div>
-          </div>
-
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/1171092500/de/foto/gl%C3%BCcklicher-afrikanischer-mann-im-hut-singen-in-smartphone-wie-mikrofon.jpg?s=1024x1024&w=is&k=20&c=Mjf8W7ZjRJGcy7Z4XdMj7Blk6-FMQkCeRQySlu_Z8ss=" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Afro Pop</h4>  <p>Read message <br> play now</p>
-          </div>
-          </div>
-
-        </div>
-
-      </div>
-      <div class="row my-5 ms-5 me-5 mt-2">
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/813038410/de/foto/blondes-m%C3%A4dchen-musik-h%C3%B6ren.jpg?s=1024x1024&w=is&k=20&c=iwaU9bvzqsTr8dGTyb05w6D_3oB1f6ukKEvJSzTAIsw=" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Blues</h4> <p>Read message <br> play now</p>
-          </div>
-          </div>
-
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/685111998/de/foto/junge-m%C3%A4dchen-tanzen-zur-musik.jpg?s=1024x1024&w=is&k=20&c=BDR9HYJXB_s0yQwlWdU8GyMHbPtEFp-OSOI7cpLTBqs=" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Pop</h4>  <p>Read message <br> play now</p>
-          </div>
-          </div>
-
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/476580386/de/foto/zeit-zum-entspannen-sie-sich-bei-musik.jpg?s=1024x1024&w=is&k=20&c=gXQ7Y0QkJPPC4WrZI43Eg45Kvf-JCSadlAUtNkmWeUg=" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Rock</h4>  <p>Read message <br> play now</p>
-          </div>
-          </div>
-
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-          <div class="col-md-4">
-            <img src="https://media.istockphoto.com/id/1171092500/de/foto/gl%C3%BCcklicher-afrikanischer-mann-im-hut-singen-in-smartphone-wie-mikrofon.jpg?s=1024x1024&w=is&k=20&c=Mjf8W7ZjRJGcy7Z4XdMj7Blk6-FMQkCeRQySlu_Z8ss=" class="logo rounded-4" alt="music">
-          </div>
-          <div class="col-md-8">
-            <h4 class="bold align-item-center">Afro Pop</h4>  <p>Read message <br> play now</p>
-          </div>
-          </div>
-        </div>
-      </div>
-      </section>
-
-      <section>
-        <h1 class="d-flex justify-content-center">Create a play list of every moment</h1>
-        <p class="d-flex justify-content-center">Flashed back 2015: Our memories from Thailand
-          <br> When i found out how much i love you</p>
-      <div class="row ms-5 me-5 d-flex justify-content-center">
-        <div class="col-md-3 ">
-          <div class="card" style="width: 18rem;">
-      <img src="https://media.istockphoto.com/id/1414847797/de/foto/braut-und-br%C3%A4utigam-k%C3%BCssen-sich-nach-ihrem-ersten-tanz-z%C3%A4rtlich.jpg?s=612x612&w=0&k=20&c=s4zSvEEBNrWdSBXw6nFNJApJLe_ooGSKpbMr7yYv4m8=" class="card-img-top" alt="wedding">
-      <div class="card-body">
-        <h5 class="card-title">Our wedding</h5>
-          <p class="card-text text-muted"> Bence and Caro <i class="fas fa-heart"></i></p>
-    <a href="#" class="btn btn-warning">Newyork</a>
+  <div class="home-logo-container">
+    <%= image_tag('logo_white.png', alt: 'MixMate Logo', class: 'home-logo') %>
   </div>
-</div>
-        </div>
-        <div class="col-md-3 ">
-          <div class="card" style="width: 18rem;">
-      <img src="https://media.istockphoto.com/id/1488514106/de/foto/fr%C3%B6hliches-paar-das-spa%C3%9F-hat-w%C3%A4hrend-es-sich-gegenseitig-auf-see-planscht.jpg?s=612x612&w=0&k=20&c=F9DabKHHj1SeCevm6xTV1WdsGfx0xu5EPqMnB1WTr-I=" class="card-img-top" alt="vacation">
-      <div class="card-body">
-        <h5 class="card-title">Our first Vacation</h5>
-          <p class="card-text text-muted">Helena</p>
-    <a href="#" class="btn btn-warning">Barbados</a>
+  <h1 class="home-title pt d-flex justify-content-center text-light">Where Every Playlist Tells a Story</h1>
+  <div class="home-start-button">
+  <%= link_to "What is MIX/MATE?", "#introduction-section", class: "btn btn-modern", onclick: "smoothScrollTo(event, 'introduction-section')" %>
+<%= link_to "How to use MIX/MATE?", "#howto-section", class: "btn btn-modern", onclick: "smoothScrollTo(event, 'howto-section')" %>
   </div>
-</div>
-        </div>
-        <div class="col-md-3 ">
-          <div class="card" style="width: 18rem;">
-      <img src="https://media.istockphoto.com/id/57158391/de/foto/frau-k%C3%BCssen-dolphin.jpg?s=612x612&w=0&k=20&c=qo_hLty1WNFs4G2iqgG-DXPZRp6vwJgWNtGjYuRPr30=" class="card-img-top" alt="sealife">
-      <div class="card-body">
-        <h5 class="card-title">Our Sea life</h5>
-          <p class="card-text text-muted">Almedin Victoria</p>
-    <a href="#" class="btn btn-warning">Turkey</a>
+
+  <div id="introduction-section" class="home-unique-section">
+    <h3>Welcome to MIX\MATE - Your Personalized Playlist Heaven</h3>
+    <p> At MIX\MATE, we're redefining the art of music curation. Our platform isn't just about listening to music; it's about creating soundtracks for every moment of your life. Whether you're relaxing, working out, or on a road trip, our intuitive platform lets you craft the perfect playlist for any occasion.
+
+Share your musical journey with friends and loved ones. Each playlist on MIX\MATE is more than a mix of songs; it's a personal message, a way to express yourself and connect with others. Our user-friendly interface combines innovative technology with a vast music library, making playlist creation both simple and enjoyable.
+
+You're the DJ at MIX\MATE. Customize your playlists, add personal messages, and explore new tunes. Join our community of music lovers and start creating your musical stories today. MIX\MATE - where every playlist is a personal journey. </p>
   </div>
-</div>
+
+  <!-- How to use MIX\MATE Button -->
+  <div class="home-start-button">
+<%= link_to "How to use MIX/MATE?", "#howto-section", class: "btn btn-modern", onclick: "smoothScrollTo(event, 'howto-section')" %>
+  </div>
+
+  <!-- How to use MIX\MATE Section -->
+  <div id="howto-section" class="home-unique-section">
+    <h3>How MIX\MATE Works - Simple Steps to Your Perfect Playlist</h3>
+    <p>How MIX\MATE Works - Simple Steps to Your Perfect Playlist**
+
+1. **Connect with Spotify**: Start by linking your Spotify account. This gives you access to an expansive music library and ensures seamless integration of your favorite tunes.
+
+2. **Create Your Playlist**: Dive into the world of endless music. Select songs that resonate with your mood, occasion, or memory. MIX\MATE's intuitive interface makes it easy to search, listen, and add songs to your playlist.
+
+3. **Personalize Your Message**: Add a personal touch! For each song, you can write a heartfelt message, share a memory, or simply describe why this track made it to your list. It's all about making each playlist uniquely yours.
+
+4. **Share and Enjoy**: Once your playlist is set, share it with friends, family, or the world. Whether it's a thoughtful gift or a party mix, your playlist is ready to make waves.
+
+And just like that, you're done! Creating the perfect playlist is that simple with MIX\MATE. Start your musical adventure now and let every playlist tell a story.
+</p>
+  </div>
+
+  <!-- Other sections... -->
+
+<footer class="footer">
+    <div class="footer-content">
+        <p class="footer-text">Join the Music Revolution with MIX\MATE</p>
+        <div class="social-icons">
+            <a href="your-instagram-link" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="your-tiktok-link" target="_blank" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="your-github-link" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
     </div>
-      <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-    <img src="https://media.istockphoto.com/id/1500815232/de/foto/ein-luxuspaar-in-wei%C3%9Fer-sommerkleidung-spaziert-auf-einer-tropischen-insel.jpg?s=1024x1024&w=is&k=20&c=emQbUpwvKKFqlNMjsKUF6EN6ZkU9QNi4ri0ktHmb7cs=" class="card-img-top" alt="maldives">
-      <div class="card-body">
-        <h5 class="card-title">Holliday</h5>
-          <p class="card-text text-muted">Giordana and Carlos <i class="fas fa-heart"></i></p>
-    <a href="#" class="btn btn-warning">Maldives</a>
-  </div>
+</footer>
 </div>
-        </div>
-      </div>
-      </section>
 
-  <div class="footer mt-5 auto">
-
-<div class="footer-copyright">
-    Create memories<i class="fas fa-heart"></i> with MixMate
-  </div>
-
-    <div class="footer-links">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-  </div>
-
+<div class="sticky-button">
+    <button id="dashboard-button">Start</button>
 </div>
-  </div>
+<script>
+    const dashboardButton = document.getElementById('dashboard-button');
+    dashboardButton.addEventListener('click', () => {
+        window.location.href = '/dashboard';
+    });
+</script>
+
+<script>
+  function smoothScrollTo(event, sectionId) {
+    event.preventDefault(); // Prevent default anchor behavior
+
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - 10; // Adjust this value for spacing from top
+
+    window.scroll({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
+</script>
