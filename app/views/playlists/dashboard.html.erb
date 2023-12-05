@@ -5,9 +5,14 @@
       <% if user_signed_in? %>
         <h1>Hi <%= @user.username %>! Here is your dashboard</h1>
 
-        <%= link_to '/auth/spotify', method: :post, class: "link" do%>
-        <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
-        <% end %>
+  <% if session[:attempted_spotify_connect] %>
+<p>Spotify Connected! Still having issues?
+<%= link_to 'try again', '/auth/spotify', method: :post, class: "link", style: "color: #000000;" %></p>
+  <% else %>
+    <%= link_to '/auth/spotify', method: :post, class: "link" do %>
+      <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
+    <% end %>
+  <% end %>
       </div>
       <% if @playlists.any? %>
       <h3> Your Playlists </h3>
