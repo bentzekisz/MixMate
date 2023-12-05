@@ -1,9 +1,13 @@
 <div class="preview">
   <div class="container">
 
-    <div class="text-end">
-      <h1>Receivers View</h1>
-    </div>
+    <div class="text-center mt-3">
+        <h1> <%= @playlist.title %></h1>
+        <h3>Dear <%= @playlist.to_name %>,</h3>
+        <h5><%= @playlist.general_message %></h5>
+        <p><strong>From: </strong><%= @playlist.from_name %></p>
+      </div>
+      <hr class="header-divider">
 
 
     <% @playlist.playlist_songs.each do |playlist_song| %>
