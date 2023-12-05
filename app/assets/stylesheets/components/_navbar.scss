@@ -9,7 +9,11 @@
 
 .navbar-lewagon .navbar-brand img {
     width: 40px;
-    position: fixed;
+    opacity: 0.50; // Normal state opacity
+    transition: opacity 0.3s ease; // Smooth transition for hover effect
+    &:hover {
+        opacity: 1; // Fully opaque on hover
+    }
 }
 
 .nav-link {
@@ -18,4 +22,18 @@
 
 .nav-link:hover {
     color: #59C173;
+}
+
+.nav-badge {
+    display: inline-block;
+    font-weight: bold;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px; // Rounded corners
+    transition: background-color 0.3s, transform 0.3s;
+    &:hover {
+        color: rgba(0, 0, 0, 0.557);
+        font-weight: bolder;
+        transform: scale(1.5); // Slight zoom effect on hover
+    }
 }

@@ -7,7 +7,11 @@
   <%= link_to "What is MIX/MATE?", "#introduction-section", class: "btn btn-modern", onclick: "smoothScrollTo(event, 'introduction-section')" %>
 <%= link_to "How to use MIX/MATE?", "#howto-section", class: "btn btn-modern", onclick: "smoothScrollTo(event, 'howto-section')" %>
   </div>
-<button id="dashboard-button" class="start-button start-button-1">START</button>
+<div class="home-start-button">
+    <a href="/dashboard">
+        <button id="dashboard-button" class="start-button start-button-1">START</button>
+    </a>
+</div>
 
   <div id="introduction-section" class="home-unique-section">
     <h3>Welcome to MIX\MATE - Your Personalized Playlist Heaven</h3>
@@ -52,7 +56,9 @@ You're the DJ at MIX\MATE. Customize your playlists, add personal messages, and 
     </div>
 </div>
 <div class="home-start-button">
-    <button id="dashboard-button-2" class="start-button start-button-2">START</button>
+    <a href="/dashboard">
+        <button id="dashboard-button-2" class="start-button start-button-2">START</button>
+    </a>
 </div>
 
 
@@ -77,19 +83,7 @@ You're the DJ at MIX\MATE. Customize your playlists, add personal messages, and 
 </div>
 
 
-<script>
-    const dashboardButton = document.getElementById('dashboard-button');
-    dashboardButton.addEventListener('click', () => {
-        window.location.href = '/dashboard';
-    });
-</script>
 
-<script>
-    const dashboardButton2 = document.getElementById('dashboard-button-2');
-    dashboardButton2.addEventListener('click', () => {
-        window.location.href = '/dashboard';
-    });
-    </script>
 
 <script>
   function smoothScrollTo(event, sectionId) {

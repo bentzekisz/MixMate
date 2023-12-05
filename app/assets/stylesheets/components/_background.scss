@@ -91,6 +91,23 @@ h1.home-title {
     margin-top: 0;
     font-weight: bold;
     margin-bottom: 30px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #FFD700;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    &:hover:after {
+        transform: scaleX(1);
+    }
     /* Eliminate any default top margin */
     /* Other styles */
 }
@@ -108,10 +125,11 @@ h1.home-title {
 }
 
 .home-logo {
-    width: 50%;
+    width: 40%;
     /* Logo takes 50% of its container's width */
     height: auto;
     /* Maintains aspect ratio */
+    // Normal state opacity
 }
 
 #introduction-section {
@@ -141,7 +159,7 @@ h1.home-title {
 }
 
 #introduction-section p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     /* Comfortable reading size for paragraph */
     max-width: 800px;
     /* Restricts the width of the paragraph */
@@ -201,7 +219,7 @@ h1.home-title {
 }
 
 #howto-section p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     /* Comfortable reading size for paragraph */
     max-width: 800px;
     /* Restricts the width of the paragraph */
