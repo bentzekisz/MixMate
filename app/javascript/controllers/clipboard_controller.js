@@ -19,5 +19,7 @@ export default class extends Controller {
     });
     event.currentTarget.disabled = true;
     event.currentTarget.innerText = this.feedbackTextValue;
+
+    this.linkTarget.innerText = "Copied!";
   }
 }
