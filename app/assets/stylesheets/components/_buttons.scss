@@ -60,3 +60,67 @@
   color: #5D26C1;
   font-size: 2em;
 }
+
+ .btn-share {
+   background: rgb(140, 82, 255);
+   background: linear-gradient(90deg, rgba(140, 82, 255, 1) 0%, rgba(0, 191, 99, 1) 100%);
+   border-color: #E0CCF3;
+   border-radius: 12px;
+   color: #f8f9fa88;
+   cursor: pointer;
+   display: inline-block;
+   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+   height: 80px;
+   width: 220px;
+   font-size: 30px;
+   font-weight: 500;
+   line-height: 2.5;
+   padding: 0 1rem;
+   text-align: center;
+   text-decoration: none;
+   transition: box-shadow .2s ease-in-out;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   white-space: nowrap;
+ }
+
+ .btn-share:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(0, 191, 99, 1), .125rem .125rem 1rem rgba(0, 191, 99, 1);
+  border-color: #E0CCF3;
+ }
+
+ .btn-share:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(140, 82, 255, 1), .125rem .125rem 1rem rgba(140, 82, 255, 1);
+    text-decoration: none !important;
+    border-color: #E0CCF3;
+ }
+
+ .btn-create {
+   background: rgb(140, 82, 255);
+   background: linear-gradient(90deg, rgba(140, 82, 255, 1) 0%, rgba(0, 191, 99, 1) 100%);
+   border-color: #f8f9fa88;
+   border-radius: 12px;
+   color: #f8f9fa88;
+   cursor: pointer;
+   display: inline-block;
+   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+   height: 40px;
+   width: 200px;
+   font-size: 16px;
+   font-weight: 500;
+   line-height: 2.5;
+   padding: 0 1rem;
+   text-align: center;
+   text-decoration: none;
+   transition: box-shadow .2s ease-in-out;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   white-space: nowrap;
+ }
+
+ .btn-create:not([disabled]):hover {
+  opacity: 0.8;
+  text-decoration: none !important;
+ }

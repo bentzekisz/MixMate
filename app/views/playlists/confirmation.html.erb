@@ -1,13 +1,21 @@
-<div class="container min-vh-100 pt">
-<div class="col text-center">
-<h1>Thank you for using MIX/MATE</h1>
-<%= image_tag "logo.png", style: 'height:200px; width:auto; margin-bottom: 20px;' %>
-<h2>YOUR MIX/MATE HAS BEEN SUCCESSFULLY CREATED!</h2>
-</div>
-
-
-  <div class="col text-center mt-5 rounded-5">
-    <b><%= link_to "Create another Playlist", new_playlist_path, class: "btn btn-primary" %></b>
+<div class="gif"></div>
+<div class="confirmation">
+  <div class="container d-flex align-items-center justify-content-center mb-4">
+    <div class="confDash p-5 shadow">
+      <div class="col text-center"> <!-- Add margin-bottom class -->
+        <h1>Thank you for using</h1>
+        <%= image_tag "logo_white.png", style: 'height: 300px;', class:'confImg'%>
+        <h2>Your MIX\MATE has been successfully created!</h2>
+         <h2>Your Playlist has been successfully created!</h2>
+      </div>
+      <div class="col text-center mt-4 rounded-5"> <!-- Add margin-top class -->
+        <div data-controller="clipboard">
+          <%= link_to "SHARE NOW", share_playlist_url(id: @playlist.id, uuid: @playlist.uuid), data: { clipboard_target: "link", action: "click->clipboard#copy" }, class: 'btn btn-share' %>
+          <span data-target="clipboard.copiedMessage" style="display: none;">Copied!</span>
+        </div>
+        <h3 class="mt-2">&</h3>
+        <b><%= link_to "Create another Playlist", new_playlist_path, class: "btn btn-create" %></b>
+      </div>
+    </div>
   </div>
-<%# <%= link_to 'Click here for confirmation', playlist_confirmation_path %>
 </div>
