@@ -1,14 +1,20 @@
-<div class="preview">
-  <div class="d-flex justify-content-between" style="margin-top: 20px; margin-right: 20px; margin-left: 20px;">
-    <%= link_to "(View Reveivers view)", receiver_view_playlist_path(@playlist), class: 'btn button-64' %>
-    <%= link_to "(share)", share_playlist_url(id: @playlist.id, uuid: @playlist.uuid), data: { clipboard_target: "link", action: "click->clipboard#copy" }, class: 'btn fa-solid fa-share-nodes' %>
+<div class="container">
+  <div class="preview">
+    <!-- Move the h1 "Preview" to the top right -->
+  <div class="d-flex justify-content-between">
+    <%= link_to receiver_view_playlist_path(@playlist) do %>
+      <button class="button-64" role="button"><span class="text">View Reveivers view</span></button>
+    <% end %>
+    <h3>Preview</h3>
   </div>
 
-  <div class="container">
-    <!-- Move the h1 "Preview" to the top right -->
-    <div class="text-end">
-      <h1>Preview</h1>
-    </div>
+  <div class="text-center mt-3">
+    <h1> <%= @playlist.title %></h1>
+    <h3>Dear <%= @playlist.to_name %>,</h3>
+    <h5><%= @playlist.general_message %></h5>
+    <p><strong>From: </strong><%= @playlist.from_name %></p>
+  </div>
+  <hr class="header-divider">
 
     <% @playlist.playlist_songs.each do |playlist_song| %>
       <!-- Your song content here -->
@@ -16,10 +22,9 @@
 
     <%= render "slider" %>
 
-    <div class="fixed-bottom d-flex justify-content-between mt-3" style="margin-bottom: 20px; margin-right: 20px; margin-left: 20px;">
-      <%= link_to "Back to rearrange", manage_playlist_playlist_songs_path(@playlist), class: 'btn button-64' %>
-      <%= link_to "Confirmation", confirmation_playlist_path(@playlist), class: 'btn button-64' %>
+    <div class="d-flex justify-content-between mb-5">
+      <h5><%= link_to ('<i class="fa-solid fa-backward-step"></i>  Back ').html_safe, manage_playlist_playlist_songs_path(@playlist), class:"link" %></h5>
+      <h5><%= link_to ('Done <i class="fa-solid fa-forward-step"></i>').html_safe, confirmation_playlist_path(@playlist), class:"link" %></h5>
     </div>
   </div>
 </div>
-

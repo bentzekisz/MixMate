@@ -7,14 +7,16 @@
           <div class="carousel-item <%= 'active' if index.zero? %>">
             <div class="d-flex align-items-center justify-content-center mt-3 text-left">
               <div class ="text-left">
-                <h1>Dear...</h1>
                 <div class="card">
                   <div class="card-body" style="margin-bottom: 20px;">
-                    <iframe style="border-radius:20px" src="https://open.spotify.com/embed/track/<%=playlist_song.song.spotify_track_id%>?utm_source=generator" width="100%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                       <div class="card-message" style="margin-bottom: 20px;">
-                        <h4 class="card-text"><strong>a personal message for you:</strong></h4>
-                        <p class="card-text"><%= playlist_song.message %></p>
+                        <h4 class="underline"><strong>Song#<%= playlist_song.position %></strong><br></h4>
+                        <p class="underline"><%= playlist_song.message %></p>
                       </div>
+                      <div class="d-flex justify-content-center pb-3">
+                        <%= image_tag "cassette.gif", style: 'height: 120px; width:auto;' %>
+                      </div>
+                    <iframe style="border-radius:20px" src="https://open.spotify.com/embed/track/<%=playlist_song.song.spotify_track_id%>?utm_source=generator" width="100%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     <!-- You can add other song details as needed -->
                   </div>
                 </div>
@@ -24,6 +26,8 @@
         <% end %>
       </div>
     </div>
+
+    <!--
       <div class="d-flex align-items-end justify-content-between mt-3">
         <button class="btn carousel-control-prev" type="button" data-bs-target="#songCarousel" data-bs-slide="prev" style="width: 30px; margin-left: 20px;">
           <i class="fa-solid fa-play fa-flip-horizontal"></i>
@@ -36,6 +40,18 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+    -->
+
+    <!-- Button Control -->
+    <div class="d-flex justify-content-center align-items-center mb-5">
+        <button class="btn" type="button" data-bs-target="#songCarousel" data-bs-slide="prev">
+        <i class="fa-solid fa-backward icon"></i>
+        </button>
+
+        <button class="btn" type="button" data-bs-target="#songCarousel" data-bs-slide="next">
+        <i class="fa-solid fa-forward icon"></i>
+        </button>
+    </div>
   </div>
 </div>
 <script>
