@@ -1,23 +1,26 @@
 <div class="container">
-  <div class="preview">
+  <div class="preview" data-controller="preview">
     <!-- Move the h1 "Preview" to the top right -->
   <div class="d-flex justify-content-end">
     <h3>Preview</h3>
   </div>
 
-  <div class="text-center mt-3">
-    <h1> <%= @playlist.title %></h1>
-    <h3>Dear <%= @playlist.to_name %>,</h3>
-    <h5><%= @playlist.general_message %></h5>
-    <p><strong>From: </strong><%= @playlist.from_name %></p>
+  <div class="d-flex justify-content-center">
+    <div class="card" data-preview-target="card">
+      <div class="text-center mt-3">
+        <h1> <%= @playlist.title %></h1>
+        <h3>Dear <%= @playlist.to_name %>,</h3>
+        <h5><%= @playlist.general_message %></h5>
+        <p><strong>From: </strong><%= @playlist.from_name %></p>
+      </div>
+      <button data-action="click->preview#start" class="btn btn-outline-primary">Start</button>
+      <!-- <hr class="header-divider"> -->
+    </div>
   </div>
-  <hr class="header-divider">
-
-    <% @playlist.playlist_songs.each do |playlist_song| %>
-      <!-- Your song content here -->
-    <% end %>
-
-    <%= render "slider" %>
+  
+  <div class="d-none" data-preview-target="player">
+      <%= render "slider" %>
+    </div>
 
     <div class="d-flex justify-content-between mb-5">
       <h5><%= link_to ('<i class="fa-solid fa-backward-step"></i>  Back ').html_safe, manage_playlist_playlist_songs_path(@playlist), class:"link" %></h5>
