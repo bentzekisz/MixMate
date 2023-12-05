@@ -1,29 +1,28 @@
 <div class="container">
-  <div>
-    <%= link_to 'go back', new_playlist_playlist_song_path(@playlist), class: 'btn btn-secondary' %>
-  </div>
-
-<h1>Add you personal message to the song</h1>
-  <div class="card">
-
-
-    <p><strong>Song:</strong> <%= @playlist_song.song.title %></p>
-    <p><strong>Artist:</strong> <%= @playlist_song.song.artist %></p>
-
-      <%= simple_form_for [@playlist, @playlist_song] do |f| %>
-        <div class="">
-          <%= f.label :message%>
-          <%= f.input :message %>
-          <%= f.submit "UPDATE" %>
-        </div>
+  <div class="row justify-content-center align-items-center mt-5">
+    <div class="col-md-8 cardDash p-4 pt-0">
+      <div>
+        <%= link_to '<i class="fas fa-arrow-left fa-2x"></i>'.html_safe, new_playlist_playlist_song_path(@playlist), class: 'btn btn-success my-3 text-decoration-none' %>
       </div>
+      
+      <h1 class="text-center">Add you personal message to the song</h1>
 
-      <% end %>
+      <div>
+        <p><strong>Song:</strong> <%= @playlist_song.song.title %></p>
+        <p><strong>Artist:</strong> <%= @playlist_song.song.artist %></p>
 
-
-
-
-<div>
-  <%= link_to 'go directly to step 3', manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-primary' %>
+        <%= simple_form_for [@playlist, @playlist_song] do |f| %>
+          <div class="form-group">
+            <%= f.label :message%>
+            <%= f.text_area :message, class: 'form-control' %>
+          </div>
+        <div class="form-group my-3 d-flex justify-content-center">
+          <%= f.submit "Update", class: 'btn btn-success' %>
+        </div>
+        <% end %>
+    </div>
+  </div>
 </div>
+<div class="d-flex justify-content-end">
+        <%= link_to 'go directly to step 3', manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-success rounded-3 text-decoration-none' %>
 </div>
