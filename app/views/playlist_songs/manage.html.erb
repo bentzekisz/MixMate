@@ -61,6 +61,33 @@
   <% end %>
 
 
+  <%# Grid Layout for Songs %>
+<% if @playlist_songs.any? %>
+  <div id="sortable-grid" class="grid-layout">
+    <% @playlist_songs.each_with_index do |playlist_song, index| %>
+      <div class="grid-item" data-id="<%= playlist_song.id %>">
+        <span class="place-number badge"><%= index + 1 %></span>
+        <% if playlist_song.message.blank? %>
+        <%= link_to "Add a message", edit_playlist_playlist_song_path(@playlist, playlist_song), class: "song-message d-flex justify-content-center add-link" %>
+        <% else %>
+        <p class="song-message"><%= playlist_song.message.truncate(60) %></p>
+        <%end %>
+        <p class="song-title"><%= playlist_song.song.title %> <br>by <%= playlist_song.song.artist %></p>
+        <%# Edit and Delete Actions with Icons %>
+        <%= link_to edit_playlist_playlist_song_path(@playlist, playlist_song), class: 'action-link' do %>
+          <i class="fa-solid fa-edit"></i>
+        <% end %>
+        <%= link_to playlist_playlist_song_path(@playlist, playlist_song), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!" }, class: 'action-link' do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="no-songs">No songs in this playlist.</p>
+<% end %>
+
+
     <%= turbo_stream_from 'sortable-grid' %>
 
     <%# Existing Script Code Here... %>
