@@ -2,22 +2,24 @@
 <div class="confirmation mt-2">
   <div class="container d-flex align-items-center justify-content-center mb-4">
     <div class="confDash p-5 shadow">
-      <div class="col text-center"> <!-- Add margin-bottom class -->
+      <div class="col text-center">
         <div class="mb-2">
           <h1>Thank you for using</h1>
         </div>
-        <%= image_tag "logo_white.png", style: 'height: 250px;', class:'confImg'%>
-          <div class="mt-4">
-            <h2>Your MIX\MATE has been successfully created!</h2>
-          </div>
-      </div>
-      <div class="col text-center mt-4 rounded-5"> <!-- Add margin-top class -->
-        <div data-controller="clipboard">
-          <%= link_to "SHARE NOW", share_playlist_url(id: @playlist.id, uuid: @playlist.uuid), data: { clipboard_target: "link", action: "click->clipboard#copy" }, class: 'btn btn-share mb-2' %>
-          <span data-target="clipboard.copiedMessage" style="display: none;">Copied!</span>
+        <%= image_tag "logo_white.png", style: 'height: 250px;', class: 'confImg' %>
+        <div class="mt-4">
+          <h2>Your MIX\MATE has been successfully created!</h2>
         </div>
-        <h3>&</h3>
-        <b><%= link_to "Create another Playlist", new_playlist_path, class: "btn btn-create mt-2" %></b>
+      </div>
+      <div class="col text-center mt-4 rounded-5">
+        <div class="home-start-button text-center"> <!-- Add text-center class -->
+          <div data-controller="clipboard">
+            <%= link_to "SHARE NOW", share_playlist_url(id: @playlist.id, uuid: @playlist.uuid), data: { clipboard_target: "link", action: "click->clipboard#copy" }, class: 'start-button block mx-auto' %>
+            <span data-target="clipboard.copiedMessage" style="display: none;">Copied!</span>
+          </div>
+          <h3>&</h3>
+          <b><%= link_to "Create another Playlist", new_playlist_path, class: "btn-modern mt-2" %></b>
+        </div>
       </div>
     </div>
   </div>
