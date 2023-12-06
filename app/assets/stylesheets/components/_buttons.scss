@@ -5,52 +5,58 @@
 
 .button-64 {
   align-items: center;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-color: #7f4fd3;
+  border:#7f4fd3;
+  /* Change to Spotify purple */
+  /* Add border color */
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); // Same box shadow
   box-sizing: border-box;
   color: #FFFFFF;
-  display: flex;
-  font-family: Phantomsans, sans-serif;
-  font-size: 20px;
+  /* Change to white */
+  display: flex;// Same font size
+  font-weight: bold; //
+  font-size: 24px;
   justify-content: center;
-  line-height: 1em;
-  max-width: 100%;
-  min-width: 140px;
-  padding: 3px;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.button-64 span {
+  transition: background 300ms;
+  display: inline-block;
+}
+
+
+.button-64 .fa-spotify {
+  color: white;
+  font-size: 24px;
+  margin-right: 10px;
+  /* Adjust spacing if needed */
+}
+
+@media (min-width: 768px) {
+  .button-64 .fa-spotify {
+    font-size: 36px;
+    /* Adjust size for larger screens */
+  }
 }
 
 .button-64:active,
 .button-64:hover {
-  outline: 0;
+  background-color: #1DB954;
+  border: 1px solid #1DB954;
+  /* Change background color on hover */
+  color: white;
+  /* Change text color on hover */
 }
 
-.button-64 span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
-}
-
-.button-64:hover span {
-  background: none;
-}
-
-@media (min-width: 768px) {
-  .button-64 {
-    font-size: 24px;
-    min-width: 196px;
-  }
-}
 
 .link {
   text-decoration: none !important;
@@ -60,69 +66,6 @@
   color: #5D26C1;
   font-size: 2em;
 }
-
- .btn-share {
-   background: rgb(140, 82, 255);
-   background: linear-gradient(90deg, rgba(140, 82, 255, 1) 0%, rgba(0, 191, 99, 1) 100%);
-   border-color: #E0CCF3;
-   border-radius: 12px;
-   color: #f8f9fa88;
-   cursor: pointer;
-   display: inline-block;
-   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-   font-size: 30px;
-   font-weight: 500;
-   line-height: 2.5;
-   padding: 0 1rem;
-   text-align: center;
-   text-decoration: none;
-   transition: box-shadow .2s ease-in-out;
-   user-select: none;
-   -webkit-user-select: none;
-   touch-action: manipulation;
-   white-space: nowrap;
- }
-
- .btn-share:not([disabled]):focus {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(0, 191, 99, 1), .125rem .125rem 1rem rgba(0, 191, 99, 1);
-  border-color: #E0CCF3;
- }
-
- .btn-share:not([disabled]):hover {
-    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(140, 82, 255, 1), .125rem .125rem 1rem rgba(140, 82, 255, 1);
-    text-decoration: none !important;
-    border-color: #E0CCF3;
- }
-
- .btn-create {
-   background: rgb(140, 82, 255);
-   background: linear-gradient(90deg, rgba(140, 82, 255, 1) 0%, rgba(0, 191, 99, 1) 100%);
-   border-color: #f8f9fa88;
-   border-radius: 12px;
-   color: #f8f9fa88;
-   cursor: pointer;
-   display: inline-block;
-   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-   height: 40px;
-   width: 200px;
-   font-size: 16px;
-   font-weight: 500;
-   line-height: 2.5;
-   padding: 0 1rem;
-   text-align: center;
-   text-decoration: none;
-   transition: box-shadow .2s ease-in-out;
-   user-select: none;
-   -webkit-user-select: none;
-   touch-action: manipulation;
-   white-space: nowrap;
- }
-
- .btn-create:not([disabled]):hover {
-  opacity: 0.8;
-  text-decoration: none !important;
- }
-
 
 // Styles for home-start-button
 .home-start-button .btn-modern {
