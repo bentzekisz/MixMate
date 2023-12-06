@@ -17,14 +17,20 @@
             <%= f.text_area :message, class: 'form-control', data: { validation_target: "input_message", action: "keyup->validation#message" } %>
             <p><span data-validation-target="note_message" style=" color: red "></span></p>
           </div>
-        <div class="form-group my-3 d-flex justify-content-center">
-          <%= f.submit "Update", class: 'btn btn-success' %>
+        <%# <div class="form-group my-3 d-flex justify-content-center"> %>
+          <div class="home-start-button">
+            <div class="d-flex justify-content-between mb-5">
+              <%= link_to ('<i class="fa-solid fa-backward-step"></i>  back ').html_safe, new_playlist_playlist_song_path(@playlist), class: 'tn btn-modern' %>
+              <%= f.submit "Update", class: 'start-button' %>
+            </div>
+            <% end %>
+          </div>
         </div>
-        <% end %>
-    </div>
+      </div>
+      <div class="home-start-button">
+        <div class="d-flex justify-content-end">
+              <%= link_to 'go directly to step 3', manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-modern' %>
+        </div>
+      </div>
   </div>
-</div>
-<div class="d-flex justify-content-end">
-        <%= link_to 'go directly to step 3', manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-success rounded-3 text-decoration-none' %>
-</div>
 </div>

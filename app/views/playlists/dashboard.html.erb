@@ -44,8 +44,9 @@
         <!-- Connect your Spotify Page -->
           <h1 class="text-center pb-3">Let's start!</h1>
           <div class="d-flex justify-content-center">
-            <%= link_to '/auth/spotify', method: :post, class: "link pb-3" do %>
-              <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
+            <%= link_to '/auth/spotify', method: :post, class: "link pb-3 button-64" do %>
+              <i class="fa-brands fa-spotify"></i>
+              <span class="text">Connect your Spotify account</span>
             <% end %>
           </div>
             <p class="text-center">If you don't connect with your Spotify, you will only be able to listen to a preview of the songs. If that's okay for you <a href='#' data-action="click->spotify#skip" class="skip">skip here</a></p>
@@ -84,10 +85,11 @@
           <% else %>
             <p>You don't have any playlists yet.</p>
           <% end %>
-
-          <%= link_to new_playlist_path, class: "link" do %>
-            <button class="button-64" role="button"><span class="text">Create New Playlist</span></button>
-          <% end %>
+          <div class="d-flex align-items-right justify-content-right">
+            <%= link_to new_playlist_path, class: "link ms-auto" do %>
+              <button class="start-button" role="button"><span class="text">Create New Playlist</span></button>
+            <% end %>
+          </div>
 
         <% else %>
           <p>Please <%= link_to 'sign in', new_user_session_path %> to view this page.</p>

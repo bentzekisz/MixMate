@@ -3,47 +3,63 @@
   <h2 class="manage-subtitle">To rearrange the playlist just use drag and drop</h2>
   <hr class="header-divider">
 
-<div class="navigation-buttons">
-  <%= link_to dashboard_path, class: 'btn btn-modern btn-secondary' do %>
-    <i class="fa-solid fa-backward"></i> Dashboard
-  <% end %>
-  <%= link_to preview_playlist_path(@playlist), class: 'btn btn-modern btn-success' do %>
-    <i class="fa-solid fa-forward"></i><br>
-    Preview
-  <% end %>
+<div class="navigation-buttons home-start-button">
+  <%= link_to ('<i class="fa-solid fa-backward-step"></i>  Dashboard ').html_safe, dashboard_path, class: 'btn btn-modern btn-secondary', class:' btn btn-modern' %>
+  <%= link_to ('Preview    <i class="fa-solid fa-forward-step"></i>').html_safe, preview_playlist_path(@playlist), class:' btn btn-modern' %>
 </div>
 
 <div class="manage-container">
 
-<div class="playlist-layout">
+  <div class="playlist-layout">
 
-  <div class="playlist-info">
-    <h1><%= @playlist.title %></h1>
-    <p><%= @playlist.general_message %></p>
+    <div class="playlist-info">
+      <h1><%= @playlist.title %></h1>
+      <p><%= @playlist.general_message %></p>
 
-    <div class="from-to-container">
-      <div class="badge badge-from">From:</div>
-      <h2><%= @playlist.from_name %></h2>
+      <div class="from-to-container">
+        <div class="badge badge-from">From:</div>
+        <h2><%= @playlist.from_name %></h2>
 
-      <div class="badge badge-to">To:</div>
-      <h2><%= @playlist.to_name %></h2>
+        <div class="badge badge-to">To:</div>
+        <h2><%= @playlist.to_name %></h2>
+      </div>
     </div>
+      <%= link_to edit_playlist_path(@playlist), class: 'btn btn-modern' do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+
   </div>
-    <%= link_to edit_playlist_path(@playlist), class: 'btn btn-modern' do %>
-      <i class="fa-solid fa-pen-to-square"></i>
+
+  <%# Playlist Full Warning with Badge %>
+    <% if @playlist_songs.count >= 12 %>
+      <p class=" badge-warning">Playlist is full!</p>
+    <% else %>
+      <%= link_to 'Add new Song', new_playlist_playlist_song_path(@playlist), class: 'start-button block mx-auto' %>
     <% end %>
 
-</div>
+    <%# Grid Layout for Songs %>
 
-
-
-
- <%# Playlist Full Warning with Badge %>
-  <% if @playlist_songs.count >= 12 %>
-    <p class=" badge-warning">Playlist is full!</p>
+  <% if @playlist_songs.any? %>
+    <div id="sortable-grid" class="grid-layout">
+      <% @playlist_songs.each_with_index do |playlist_song, index| %>
+        <div class="grid-item" data-id="<%= playlist_song.id %>">
+          <span class="place-number badge"><%= index + 1 %></span>
+          <p class="song-message"><%= playlist_song.message %></p>
+          <p class="song-title"><%= playlist_song.song.title %> <br>by <%= playlist_song.song.artist %></p>
+          <%# Edit and Delete Actions with Icons %>
+          <%= link_to edit_playlist_playlist_song_path(@playlist, playlist_song), class: 'action-link' do %>
+            <i class="fa-solid fa-edit"></i>
+          <% end %>
+          <%= link_to playlist_playlist_song_path(@playlist, playlist_song), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the song with your personal message, and CANNOT be reverted!" }, class: 'action-link' do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% else %>
-    <%= link_to 'Add New Song', new_playlist_playlist_song_path(@playlist), class: 'btn btn-modern btn-primary' %>
+    <p class="no-songs">No songs in this playlist.</p>
   <% end %>
+
 
   <%# Grid Layout for Songs %>
 <% if @playlist_songs.any? %>
@@ -72,46 +88,46 @@
 <% end %>
 
 
-  <%= turbo_stream_from 'sortable-grid' %>
+    <%= turbo_stream_from 'sortable-grid' %>
 
-  <%# Existing Script Code Here... %>
-    <script>
-    // ...existing JavaScript code...
-        document.addEventListener('turbo:load', function () {
-          const gridElement = document.getElementById('sortable-grid');
-      if (gridElement) {
-        new Sortable(gridElement, {
-          swapThreshold: 0.75,
-          swapClass: 'highlight',
-          animation: 500,
-          ghostClass: 'sortable-ghost',
-          onEnd: function(evt) {
-            const order = this.toArray();
-            fetch('/update_playlist_order', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
-              },
-              body: JSON.stringify({ playlist_id: "<%= @playlist.id %>", order: order })
-            }).then(response => {
-              if (response.ok) {
-                console.log('Order updated');
-                updatePlaceNumbers();
-              } else {
-                console.error('Error updating order');
-              }
-            });
-          }
+    <%# Existing Script Code Here... %>
+      <script>
+      // ...existing JavaScript code...
+          document.addEventListener('turbo:load', function () {
+            const gridElement = document.getElementById('sortable-grid');
+        if (gridElement) {
+          new Sortable(gridElement, {
+            swapThreshold: 0.75,
+            swapClass: 'highlight',
+            animation: 500,
+            ghostClass: 'sortable-ghost',
+            onEnd: function(evt) {
+              const order = this.toArray();
+              fetch('/update_playlist_order', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+                },
+                body: JSON.stringify({ playlist_id: "<%= @playlist.id %>", order: order })
+              }).then(response => {
+                if (response.ok) {
+                  console.log('Order updated');
+                  updatePlaceNumbers();
+                } else {
+                  console.error('Error updating order');
+                }
+              });
+            }
+          });
+        }
+      });
+
+      function updatePlaceNumbers() {
+        const placeNumbers = document.getElementsByClassName('place-number');
+        Array.from(placeNumbers).forEach((placeNumber, index) => {
+          placeNumber.innerText = index + 1;
         });
       }
-    });
-
-    function updatePlaceNumbers() {
-      const placeNumbers = document.getElementsByClassName('place-number');
-      Array.from(placeNumbers).forEach((placeNumber, index) => {
-        placeNumber.innerText = index + 1;
-      });
-    }
-  </script>
+    </script>
 </div>

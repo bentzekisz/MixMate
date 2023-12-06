@@ -52,19 +52,6 @@
         color: rgba(217, 217, 217, 0.686)
     }
 
-    .navigation-buttons {
-        position: fixed; // Fixed positioning relative to the viewport
-        bottom: 0; // Aligns the container to the bottom of the viewport
-        left: 0; // Aligns the container to the left of the viewport
-        width: 100%; // Ensures the container spans the full width of the screen
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 60px;
-        background-color: #ffffff00; // A background color is needed to cover content below
-        z-index: 1000; // Ensures the navigation buttons are above other content
-        // Add a box shadow or a border-top if you want to distinguish the navbar from the content below
-    }
-
     .playlist-layout {
         padding: 20px;
         color: #ffffff;
@@ -98,54 +85,6 @@
         }
     }
 
-    // Button Styles
-    .btn-modern {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 16px;
-        text-decoration: none;
-        transition: background-color 0.3s, color 0.3s;
-        cursor: pointer;
-        margin: 5px;
-        text-decoration: none;
-        &:hover,
-        &:focus {
-            text-decoration: none;
-        }
-        &.btn-secondary {
-            border-radius: 15px;
-            background-color: #565b5f8f;
-            color: white;
-            &:hover,
-            &:focus {
-                text-decoration: none;
-            }
-        }
-        &.btn-success {
-            font-weight: 500;
-            border-radius: 15px;
-            background-color: #8b52febf;
-            color: white;
-            &:hover {
-                background-color: #7b48df;
-            }
-        }
-        &.btn-primary {
-            font-weight: 500;
-            border-radius: 10px;
-            background-color: #004cff97;
-            color: white;
-            &:hover {
-                background-color: #ff8c0097;
-            }
-        }
-        i {
-            margin-right: 8px;
-        }
-    }
 
     // Badge for Warning
     .badge-warning {
@@ -233,3 +172,8 @@
             padding-bottom: 70px;
         }
     }
+    .badge-preview {
+      margin-right: 2px;
+      background-color: #ffffff76;
+      border-radius: 20px;
+  }

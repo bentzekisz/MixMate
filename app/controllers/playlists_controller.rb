@@ -29,7 +29,7 @@ class PlaylistsController < ApplicationController
     @playlist.user = current_user
 
     if @playlist.save
-      redirect_to dashboard_path
+      redirect_to manage_playlist_playlist_songs_path(@playlist)
     else
       render :new
     end
