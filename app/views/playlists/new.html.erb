@@ -1,9 +1,21 @@
-<div class="container">
+<%
+=begin%>
+ <div class="container">
   <div class="cardDash p-5 shadow">
     <div class="form">
       <h1>Create your Playlist</h1>
 
       <%= render "form", playlist: @playlist %>
     </div>
+  </div>
+</div>
+<%
+=end%>
+
+
+<div class=" container login-container">
+  <div class="login-card">
+    <h2 class="text-center">Create your Playlist</h2>
+    <%= render "form", playlist: @playlist %>
   </div>
 </div>
