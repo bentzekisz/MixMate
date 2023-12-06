@@ -5,22 +5,32 @@
     <h3>Preview</h3>
   </div>
 
+
+<!-- Wrap up Card-->
+
   <div class="d-flex justify-content-center">
     <div class="card" data-preview-target="card">
-      <div class="text-center mt-3">
-        <h1> <%= @playlist.title %></h1>
-        <h3>Dear <%= @playlist.to_name %>,</h3>
-        <h5><%= @playlist.general_message %></h5>
-        <p><strong>From: </strong><%= @playlist.from_name %></p>
+      <div class="card-wrap">
+        <h1 class="underline">A MIX/MATE from <%= @playlist.from_name %>:</h1>
+        <h2 class="underline"> Title:  <%= @playlist.title %></h2>
+        <h3 class="underline">Dear <%= @playlist.to_name %>,</h3>
+        <h5 class="underline pt-3"><%= @playlist.general_message %></h5>
+        <div class="d-flex justify-content-center">
+          <button data-action="click->preview#start" class="btn btn-play"><i class="fa-solid fa-circle-play"></i></button>
+        </div>
       </div>
-      <button data-action="click->preview#start" class="btn btn-outline-primary">Start</button>
-      <!-- <hr class="header-divider"> -->
     </div>
   </div>
+
+
+<!-- Cassette Card -->
 
   <div class="d-none" data-preview-target="player">
       <%= render "slider" %>
     </div>
+
+
+<!-- Back- and Done- Button -->
 
 
     <div class="home-start-button">
