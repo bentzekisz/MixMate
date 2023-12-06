@@ -169,27 +169,6 @@ h1.home-title {
     /* Space after the paragraph */
 }
 
-// Styles for home-start-button
-.home-start-button .btn-modern {
-    background-color: #683ab787; // Initial background color
-    color: white; // Text color
-    border: none;
-    border-radius: 20px; // Rounded borders
-    padding: 10px 25px; // Padding
-    font-size: 1rem; // Font size
-    font-weight: bold; // Bold text
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); // Shadow for depth
-    transition: all 0.3s ease; // Smooth transition
-    text-transform: uppercase; // Uppercase text
-    letter-spacing: 1px; // Letter spacing
-    cursor: pointer; // Cursor
-}
-
-.home-start-button .btn-modern:hover {
-    background-color: #7f4fd3; // Darker shade for hover state
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Enhanced shadow on hover
-    transform: translateY(-2px); // Lift effect on hover
-}
 
 #howto-section {
     display: flex;
@@ -319,75 +298,6 @@ html {
 
 .social-icons a:hover {
     color: rgba(0, 0, 0, 0.8);
-}
-
-.sticky-button {
-    position: fixed;
-    left: 50%;
-    bottom: 120px;
-    transform: translateX(-50%);
-    z-index: 1000;
-}
-
-.sticky-button button {
-    background-color: #ff6b6b7f;
-    /* A modern, eye-catching color */
-    color: white;
-    border: none;
-    border-radius: 15px;
-    /* More pronounced border-radius for a modern look */
-    padding: 15px 30px;
-    /* Bigger padding for a larger button */
-    cursor: pointer;
-    font-size: 1.2rem;
-    /* Larger text for prominence */
-    font-weight: bold;
-    /* Bold text for better visibility */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    /* Subtle shadow for depth */
-    transition: background-color 0.3s, transform 0.3s;
-    /* Smooth transition for hover effects */
-}
-
-.sticky-button button:hover {
-    background-color: #FF5050;
-    /* A slightly darker shade for the hover state */
-    transform: translateY(-2px);
-    /* A subtle lift effect on hover */
-}
-
-@media (max-width: $breakpoint-sm) {
-    .sticky-button {
-        bottom: 60px;
-        /* Adjust for smaller screens */
-    }
-}
-
-// Define new class for Start button
-.start-button {
-    background-color: #FF6B6B; // Same background color as sticky button
-    color: white;
-    border: none;
-    border-radius: 15px; // Same border radius
-    padding: 15px 30px; // Same padding
-    cursor: pointer;
-    font-size: 1.2rem; // Same font size
-    font-weight: bold; // Same font weight
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); // Same box shadow
-    transition: background-color 0.3s, transform 0.3s; // Same transition
-    &:hover {
-        background-color: #FF5050; // Same hover effect
-        transform: translateY(-2px); // Same transform effect
-    }
-}
-
-.start-button-1 {
-    margin-top: 70px;
-    margin-bottom: 70px;
-}
-
-.start-button-2 {
-    margin-bottom: 70px;
 }
 
 // Existing styles for other elements...
