@@ -17,7 +17,7 @@
                   <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="card p-3 mb-4">
                       <%= link_to manage_playlist_playlist_songs_path(playlist_id: playlist.id) do %>
-                      <h4> <%= playlist.title %> </h4>
+                      <h4><%= playlist.title.truncate(25) %></h4>
                       <p> <strong>To: </strong><%= playlist.to_name %> </p>
                       <div class="d-flex justify-content-end">
                           <%= link_to ('<i class="fa-solid fa-trash"></i>').html_safe, playlist_path(playlist),  method: :delete,  data: {turbo_method: :delete, turbo_confirm: "Are you sure? This will delete the playlistwith all songs and personal messages, and CANNOT be reverted!"}%>
