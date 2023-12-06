@@ -1,16 +1,13 @@
 <div class="container">
   <div class="row justify-content-center align-items-center mt-5">
     <div class="col-md-8 cardDash p-4 pt-0">
-      <div>
-        <%= link_to '<i class="fas fa-arrow-left fa-2x"></i>'.html_safe, new_playlist_playlist_song_path(@playlist), class: 'btn btn-success my-3 text-decoration-none' %>
-      </div>
 
       <h1 class="text-center">Add you personal message to the song</h1>
 
-      <div>
+      <div class="song-details">
         <p><strong>Song:</strong> <%= @playlist_song.song.title %></p>
         <p><strong>Artist:</strong> <%= @playlist_song.song.artist %></p>
-
+</div>
         <%= simple_form_for [@playlist, @playlist_song] do |f| %>
           <div class="form-group">
             <%= f.label :message%>
@@ -27,9 +24,7 @@
         </div>
       </div>
       <div class="home-start-button">
-        <div class="d-flex justify-content-end">
-              <%= link_to 'go directly to step 3', manage_playlist_playlist_songs_path(@playlist), class: 'btn btn-modern' %>
-        </div>
+
       </div>
   </div>
 </div>
