@@ -1,13 +1,16 @@
-<%= simple_form_for playlist do |f| %>
-  <%= f.input :from_name, placeholder: 'Let the reciever know, who send the playlist' %>
-  <%= f.input :to_name, placeholder: 'Who would you like to send the playlist to' %>
-  <%= f.input :title, placeholder: 'Give a name to your playlist' %>
-  <%= f.input :general_message, placeholder: 'Send a general message' %>
-
-  <div class="home-start-button">
-    <div class="d-flex justify-content-between mb-5">
-      <%= link_to ('<i class="fa-solid fa-backward-step"></i>  back ').html_safe, dashboard_path, class: ' btn btn-modern' %>
-      <button type="submit" class="start-button" role="button"><span class="text">Save</span></button>
+<div data-controller="validation">
+  <%= simple_form_for playlist do |f| %>
+    <%= f.input :from_name, placeholder: 'Let the reciever know, who send the playlist' %>
+    <%= f.input :to_name, placeholder: 'Who would you like to send the playlist to' %>
+    <%= f.input :title, placeholder: 'Give a name to your playlist', input_html: { data: { validation_target: "input_title", action: "keyup->validation#title" } } %>
+    <p><span data-validation-target="note_title" style=" color: red "></span></p>
+    <%= f.input :general_message, placeholder: 'Send a general message', input_html: { data: { validation_target: "input_message", action: "keyup->validation#message" } } %>
+    <p><span data-validation-target="note_message" style=" color: red "></span></p>
+    <div class="home-start-button">
+      <div class="d-flex justify-content-between mb-5">
+        <%= link_to ('<i class="fa-solid fa-backward-step"></i>  back ').html_safe, dashboard_path, class: ' btn btn-modern' %>
+        <button type="submit" class="start-button" role="button"><span class="text">Save</span></button>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -4,8 +4,8 @@ class PlaylistSong < ApplicationRecord
   belongs_to :playlist
   belongs_to :song
 
-
   validate :max_songs_limit,  on: :create
+  validates :message, length: { maximum: 200 }
   validates :position, uniqueness: { scope: :playlist_id }
   scope :ordered, -> { order(position: :asc) }
   before_create :set_default_position
