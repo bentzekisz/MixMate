@@ -1,0 +1,115 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px; // Adjust the margin-top value to your desired spacing
+    height: 100vh;
+    align-items: flex-start; // Updated to align the login card to the top
+}
+
+.login-card {
+    width: 40%;
+    background: rgba(255, 255, 255, 0.455);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: flex-start;
+    margin-top: 100px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #00B74A;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: darken(#00B74A, 10%);
+    }
+}
+
+.form-label,
+.form-label-checkbox {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-checkbox {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .login-card {
+        width: 90%;
+    }
+}
+
+// Add this inside your .login-card class
+.form-check {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-left: 0;
+    margin-top: 0;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    &:checked {
+        background-color: #00B74A;
+        border-color: #00B74A;
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: 7px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.form-check-label {
+    margin-left: 5px;
+    font-size: 0.9rem;
+    user-select: none;
+    cursor: pointer;
+}
