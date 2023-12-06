@@ -16,7 +16,9 @@
                       <div class="d-flex justify-content-center pb-3">
                         <%= image_tag "cassette.gif", style: 'height: 120px; width:auto;' %>
                       </div>
-                    <iframe style="border-radius:20px" src="https://open.spotify.com/embed/track/<%=playlist_song.song.spotify_track_id%>?utm_source=generator" width="100%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                      <div class="ps-5 pe-5">
+                        <iframe style="border-radius:20px" src="https://open.spotify.com/embed/track/<%=playlist_song.song.spotify_track_id%>?utm_source=generator" width="100%" height="150" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                      </div>
                     <!-- You can add other song details as needed -->
                   </div>
                 </div>

@@ -48,8 +48,6 @@
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border: 5px solid #5D26C1;
     border-style: double;
@@ -63,6 +61,8 @@
     margin-bottom: 50px;
     margin-top: 50px;
     justify-content: bottom;
+    margin-left: 50px;
+    margin-right: 50px;
     padding-top: 20px;
     padding-left: 25px;
     clip-path: polygon(5% 0%, 95% 0%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0% 20%);
@@ -79,6 +79,34 @@
     }
   }
 
+  .card-wrap {
+    background-color: white;
+    justify-content: center;
+    height: 120em;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 94%, 95% 100%, 5% 100%, 0 94%, 0 5%);
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Handwriting', sans-serif;
+      color: #5D26C1;
+    }
+
+    p {
+      font-family: 'Handwriting', sans-serif;
+      color: #5D26C1;
+      font-size: 20px;
+    }
+
+    .btn-play {
+      font-size: 6em;
+      color: #5D26C1;
+    }
+  }
 
   .icon {
     color: #5D26C1;
