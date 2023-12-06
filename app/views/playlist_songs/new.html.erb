@@ -1,7 +1,7 @@
 <div class="container d-flex align-items-center justify-content-center">
   <div class="cardAddSong p-3 mt-2 shadow">
     <div class="home-start-button">
-      <%= link_to 'back', manage_playlist_playlist_songs_path(@playlist), class: ' btn btn-modern' %>
+      <%= link_to ('<i class="fa-solid fa-backward-step"></i>  back ').html_safe, manage_playlist_playlist_songs_path(@playlist), class: ' btn btn-modern' %>
     </div>
       <div class="addSong mt-5">
         <div class="mb-4">

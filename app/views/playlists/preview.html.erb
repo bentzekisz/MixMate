@@ -22,17 +22,22 @@
     </div>
   </div>
 
+
 <!-- Cassette Card -->
 
   <div class="d-none" data-preview-target="player">
       <%= render "slider" %>
     </div>
 
+
 <!-- Back- and Done- Button -->
 
-    <div class="d-flex justify-content-between mb-5">
-      <h5><%= link_to ('<i class="fa-solid fa-backward-step"></i>  Back ').html_safe, manage_playlist_playlist_songs_path(@playlist), class:"link" %></h5>
-      <h5><%= link_to ('Done <i class="fa-solid fa-forward-step"></i>').html_safe, confirmation_playlist_path(@playlist), class:"link" %></h5>
+
+    <div class="home-start-button">
+      <div class="d-flex justify-content-between mb-5">
+        <h5><%= link_to ('<i class="fa-solid fa-backward-step"></i>  Back ').html_safe, manage_playlist_playlist_songs_path(@playlist), class:' btn btn-modern' %></h5>
+        <h5><%= link_to ('Done    <i class="fa-solid fa-forward-step"></i>').html_safe, confirmation_playlist_path(@playlist), class:' btn btn-modern' %></h5>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,23 @@
+.auth-links {
+    margin-top: 20px;
+    text-align: center;
+    .auth-link {
+        display: block;
+        margin-bottom: 15px;
+        color: #2C3E50; // Example color
+        font-size: 16px;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+        &:hover {
+            color: #18BC9C; // Example hover color
+        }
+    }
+    .sign-up-link {
+        color: #ffffff; // Example color for sign up link
+        font-size: 20px;
+    }
+    .forgot-password-link {
+        font-style: italic;
+        color: #95A5A6; // Example color for forgot password link
+    }
+}
