@@ -254,6 +254,11 @@
         .edit-playlist-container .simple_form .form-group label {
             color: black !important;
         }
+   .d-flex {
+            margin-top: 50px;
+            margin-bottom: 0px;
+        }
+
 
 [data-controller='validation'] input::placeholder {
   color: #8f83a4;
@@ -274,3 +279,4 @@
 [data-search-target="input"]::placeholder {
   color: #8f83a4;
 }
+

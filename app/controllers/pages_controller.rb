@@ -6,4 +6,7 @@ class PagesController < ApplicationController
       @tracks = RSpotify::Track.search(params[:search])
     end
   end
+
+  def about
+  end
 end

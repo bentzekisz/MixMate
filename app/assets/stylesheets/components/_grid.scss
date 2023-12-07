@@ -29,7 +29,7 @@
         height: 5px;
         background-color: #ddd; // Or any color you prefer
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         width: 50%; // Adjust this value to get the desired width
         margin-left: auto; // These two margin properties will center the line horizontally
         margin-right: auto;
@@ -55,30 +55,34 @@
     .playlist-layout {
         padding: 20px;
         color: #ffffff;
-        text-align: center;
+        text-align: left;
         margin-bottom: 20px;
     }
 
     .playlist-info {
         margin-bottom: 10px;
+        padding: 10px;
+        padding-left: 20px;
+        border-radius: 8px;
+        background-color: #8b52fe70;
         // Styles for the playlist info
         h1 {
             font-weight: 300;
         }
         .from-to-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px; // Adjust the spacing between the elements
+            justify-content: start;
+            align-items: baseline;
+            gap: 10px; // Adjust the spacing between the elements
             .badge,
-            h2 {
+            p {
                 display: inline-flex; // Inline-flex to keep badge and text in line
                 align-items: center;
                 margin: 0; // Removes default margins
             }
             .badge-from,
             .badge-to {
-                margin-right: 2px;
+                margin-right: 0px;
                 background-color: #ffffff76;
                 border-radius: 20px;
             }

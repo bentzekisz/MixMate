@@ -1,6 +1,5 @@
 <div class="cardManage">
   <h1 class="manage-title">Manage your Playlist</h1>
-  <h2 class="manage-subtitle">To rearrange the playlist just use drag and drop</h2>
   <hr class="header-divider">
 
   <div class="navigation-buttons home-start-button">
@@ -11,24 +10,32 @@
   <div class="manage-container">
 
     <div class="playlist-layout">
-
-      <div class="playlist-info">
+      <p class="ps-2 pb-0 mb-0 pt-0 mt-0 text-center">Playlist Information: </p>
+      <div class="playlist-info shadow">
         <h1><%= @playlist.title %></h1>
-        <p><%= @playlist.general_message %></p>
-
         <div class="from-to-container">
-          <div class="badge badge-from">From:</div>
-          <h2><%= @playlist.from_name %></h2>
+            <div class="badge badge-from">From:</div>
+            <p><%= @playlist.from_name %></p>
 
-          <div class="badge badge-to">To:</div>
-          <h2><%= @playlist.to_name %></h2>
+            <div class="badge badge-to">To:</div>
+            <p><%= @playlist.to_name %></p>
+          </div>
+        <p class="mt-2"><%= @playlist.general_message %></p>
+        <div class="d-flex justify-content-end">
+          <%= link_to edit_playlist_path(@playlist), class: 'btn btn-icon' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
         </div>
       </div>
+
       <%= link_to edit_playlist_path(@playlist), class: 'btn btn-modern edit' do %>
         <i class="fa-solid fa-pen-to-square"></i>
       <% end %>
 
+
     </div>
+
+    <p class="manage-subtitle mt-0 pt-0">To rearrange the playlist just use drag and drop</p>
 
     <%# Playlist Full Warning with Badge %>
       <% if @playlist_songs.count >= 12 %>
