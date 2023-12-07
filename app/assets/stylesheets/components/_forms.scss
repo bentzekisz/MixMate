@@ -200,3 +200,51 @@
         .form-group {
             text-align: left;
         }
+
+        .edit-playlist-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+        }
+
+        .edit-playlist-card {
+            width: 80%;
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.455);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            .form {
+                h1 {
+                    margin-bottom: 1.5rem;
+                    font-size: 2rem;
+                    color: #333;
+                }
+                .form-group {
+                    margin-bottom: 1rem;
+                    text-align: left;
+                    label {
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: #000000;
+                    }
+                    .form-control {
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid #000000;
+                        margin-bottom: 1rem;
+                    }
+                }
+                .form-actions {
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+
+        .edit-playlist-container .simple_form .form-group label {
+            color: black !important;
+        }
