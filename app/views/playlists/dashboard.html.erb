@@ -1,6 +1,6 @@
 <div class="dashBG dashboard">
   <div class="container" data-controller="spotify">
-    <div class="cardDash p-5 shadow position-relative">
+    <div class="cardDash p-5 shadow text-center">
 
     <!-- Only shown when connected to Spotify -->
       <div data-spotify-target="connect">
@@ -10,12 +10,14 @@
             <p>Spotify Connected! Still having issues?
             <%= link_to 'try again', '/auth/spotify', method: :post, class: "link", style: "color: #000000;" %></p>
 
+            <hr class="header-divider">
+
             <% if @playlists.any? %>
-            <h3> Your Playlists </h3>
-              <div class="row">
+            <h3 class="mb-3"> Your Playlists </h3>
+              <div class="row justify-content-start">
                 <% @playlists.each do |playlist| %>
                   <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="card p-3 mb-4">
+                    <div class="card p-3 mb-4 text-start">
                       <%= link_to manage_playlist_playlist_songs_path(playlist_id: playlist.id) do %>
                       <h4><%= playlist.title.truncate(25) %></h4>
                       <p> <strong>To: </strong><%= playlist.to_name %> </p>
@@ -31,10 +33,11 @@
             <% else %>
               <p>You don't have any playlists yet.</p>
             <% end %>
-
-            <%= link_to new_playlist_path, class: "link position-absolute bottom-0 end-0 mb-3 me-3 mr-3" do %>
-              <button class="start-button" role="button"><span class="text">Create New Playlist</span></button>
-            <% end %>
+            <div class="d-flex align-items-right justify-content-right">
+              <%= link_to new_playlist_path, class: "link ms-auto" do %>
+                <button class="start-button" role="button"><span class="text">Create New Playlist</span></button>
+              <% end %>
+            </div>
 
           <% else %>
             <p>Please <%= link_to 'sign in', new_user_session_path %> to view this page.</p>
@@ -67,7 +70,7 @@
 
           <% if @playlists.any? %>
           <h3> Your Playlists </h3>
-            <div class="row">
+            <div class="row justify-content-start">
               <% @playlists.each do |playlist| %>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                   <div class="card p-3 mb-4">
@@ -91,12 +94,10 @@
               <button class="start-button" role="button"><span class="text">Create New Playlist</span></button>
             <% end %>
           </div>
-
         <% else %>
           <p>Please <%= link_to 'sign in', new_user_session_path %> to view this page.</p>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
