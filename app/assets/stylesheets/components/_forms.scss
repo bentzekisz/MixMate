@@ -4,6 +4,11 @@
             align-items: center;
             flex-direction: column; // Added to align items vertically
             margin-top: 20px;
+            color: white;
+
+            h1 {
+              font-weight: bold;
+            }
         }
 
         .login-card {
@@ -16,6 +21,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             margin-top: 0; // Removed margin-top to align with login container
+            color: white;
+
+            h1 {
+                font-weight: bold;
+              }
         }
 
         .form-group {
@@ -46,7 +56,6 @@
             border: none;
             background-color: #00B74A; // Green color
             color: white;
-            font-size: 1.1rem;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -146,14 +155,14 @@
                         font-size: 2rem;
                         font-weight: 700;
                         margin-bottom: 2rem; // Increased bottom margin for more space
-                        color: #000000;
+                        color: white;
                         margin-top: 50px;
                     }
                     p {
                         font-size: 1.2rem;
                         font-weight: 500;
                         margin: 1rem 0; // Increased margin for more space between details
-                        color: #34495E;
+                        color: white;
                     }
                     .song-details {
                         text-align: left; // Align the text to the left
