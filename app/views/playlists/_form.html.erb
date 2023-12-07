@@ -4,7 +4,7 @@
     <%= f.input :to_name, placeholder: 'Who would you like to send the playlist to' %>
     <%= f.input :title, placeholder: 'Give a name to your playlist', input_html: { data: { validation_target: "input_title", action: "keyup->validation#title" } } %>
     <p><span data-validation-target="note_title" style=" color: red "></span></p>
-    <%= f.input :general_message, placeholder: 'Send a general message', input_html: { data: { validation_target: "input_message", action: "keyup->validation#message" } } %>
+    <%= f.input :general_message, placeholder: 'Send a general message', input_html: { data: { validation_target: "input_message", action: "keyup->validation#message" } }, style: 'color: #8f83a4;' %>
     <p><span data-validation-target="note_message" style=" color: red "></span></p>
     <div class="home-start-button">
       <div class="d-flex justify-content-between mb-5">
