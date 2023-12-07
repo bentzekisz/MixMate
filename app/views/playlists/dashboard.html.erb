@@ -1,6 +1,6 @@
 <div class="dashBG dashboard">
   <div class="container" data-controller="spotify">
-    <div class="cardDash p-5 shadow">
+    <div class="cardDash p-5 shadow position-relative">
 
     <!-- Only shown when connected to Spotify -->
       <div data-spotify-target="connect">
@@ -32,8 +32,8 @@
               <p>You don't have any playlists yet.</p>
             <% end %>
 
-            <%= link_to new_playlist_path, class: "link" do %>
-              <button class="button-64" role="button"><span class="text">Create New Playlist</span></button>
+            <%= link_to new_playlist_path, class: "link position-absolute bottom-0 end-0 mb-3 me-3 mr-3" do %>
+              <button class="start-button" role="button"><span class="text">Create New Playlist</span></button>
             <% end %>
 
           <% else %>
@@ -59,8 +59,9 @@
         <% if user_signed_in? %>
           <div class="d-flex justify-content-between">
             <h1>Hi <%= @user.username %>! Here is your dashboard</h1>
-            <%= link_to '/auth/spotify', method: :post, class: "link pb-3" do %>
-              <button class="button-64" role="button"><span class="text">Connect your Spotify account</span></button>
+             <%= link_to '/auth/spotify', method: :post, class: "link pb-3 button-64" do %>
+              <i class="fa-brands fa-spotify"></i>
+              <span class="text">Connect your Spotify account</span>
             <% end %>
           </div>
 
