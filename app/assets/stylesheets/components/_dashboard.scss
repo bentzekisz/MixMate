@@ -2,12 +2,10 @@
 
   h1 {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: #A17FE0;
   }
 
   p {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: #b7b7b7;
   }
 
   h3 {
@@ -17,7 +15,6 @@
 
   h4 {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
   }
 
   a {
@@ -26,17 +23,13 @@
   }
 
   .card {
-    background-color: #E0CCF3;
+    background-color: #5D26C1;
     border: none !important;
-
-    p {
-      color: white;
-    }
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); // Same box shadow
 
     &:hover {
       transform: scale(1.05);
-      background-color: #5D26C1;
-      color: white;
+      background-color: #A17FE0;
     }
   }
 
