@@ -6,9 +6,9 @@
       <div data-spotify-target="connect">
         <% if session[:attempted_spotify_connect] %>
           <% if user_signed_in? %>
-            <h1>Hi <%= @user.username %>! Here is your dashboard</h1>
+            <h1>Welcome to you Dashboard, <%= @user.username %>!</h1>
             <p>Spotify Connected! Still having issues?
-            <%= link_to 'try again', '/auth/spotify', method: :post, class: "link", style: "color: #000000;" %></p>
+            <%= link_to 'try again', '/auth/spotify', method: :post, class: "link", style: "color: #5D26C1;" %></p>
 
             <hr class="header-divider">
 
@@ -61,16 +61,18 @@
       <div class="d-none" data-spotify-target="dashboard">
         <% if user_signed_in? %>
           <div class="d-flex justify-content-between">
-            <h1>Hi <%= @user.username %>! Here is your dashboard</h1>
+            <h1>Welcome to you Dashboard, <%= @user.username %>!</h1>
              <%= link_to '/auth/spotify', method: :post, class: "link pb-3 button-64" do %>
               <i class="fa-brands fa-spotify"></i>
               <span class="text">Connect your Spotify account</span>
             <% end %>
           </div>
 
+          <hr class="header-divider">
+
           <% if @playlists.any? %>
           <h3> Your Playlists </h3>
-            <div class="row justify-content-start">
+            <div class="row justify-content-start text-start">
               <% @playlists.each do |playlist| %>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                   <div class="card p-3 mb-4">
