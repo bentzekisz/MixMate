@@ -7,11 +7,11 @@
       <div class="song-details">
         <p><strong>Song:</strong> <%= @playlist_song.song.title %></p>
         <p><strong>Artist:</strong> <%= @playlist_song.song.artist %></p>
-</div>
+      </div>
         <%= simple_form_for [@playlist, @playlist_song] do |f| %>
           <div class="form-group">
-            <%= f.label :message%>
-            <%= f.text_area :message, class: 'form-control', data: { validation_target: "input_message", action: "keyup->validation#message" } %>
+            <p><strong>Message:</strong>
+            <%= f.text_area :message, placeholder: 'Add your personal message...', class: 'form-control', data: { validation_target: "input_message", action: "keyup->validation#message" } %>
             <p><span data-validation-target="note_message" style=" color: red "></span></p>
           </div>
         <%# <div class="form-group my-3 d-flex justify-content-center"> %>
