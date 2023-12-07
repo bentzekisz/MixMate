@@ -275,3 +275,11 @@
    text-decoration: none !important;
    border-color: #E0CCF3;
  }
+
+ .btn-icon {
+  color: white;
+
+    &:hover {
+      color: #8b52febf;
+    }
+ }
