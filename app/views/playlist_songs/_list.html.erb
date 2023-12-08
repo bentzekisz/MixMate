@@ -2,9 +2,9 @@
   <div data-search-target="list">
     <% if @tracks %>
         <% @tracks[0..4].each do |track| %>
-        <div class="row align-items-center justify-content-center">
-            <div class="d-flex size justify-content-center">
-              <div class="col-lg-8 col-md-4 col-sm-2 ">
+        <div class="songcards row align-items-center justify-content-center mt-0">
+            <div class=" songcards d-flex size justify-content-center mt-0">
+              <div class="songcards col-lg-8 col-md-4 col-sm-2">
                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/<%=track.id%>?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
               </div>
               <%= simple_form_for [playlist, PlaylistSong.new] do |f|%>
