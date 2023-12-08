@@ -174,11 +174,11 @@
                     .form-group {
                         margin-bottom: 2rem; // Increased bottom margin for more space above input
                         label {
-                            font-size: 1rem;
                             font-weight: 600;
                             text-align: left;
                             margin-bottom: 0.5rem;
-                            color: #000000;
+                            color: white;
+                            font-size: 20px;
                         }
                         .form-control {
                             width: 100%;
@@ -186,7 +186,7 @@
                             border-radius: 5px;
                             border: 1px solid #ccc;
                             font-size: 1rem;
-                            color: #2C3E50;
+                            color: black;
                             margin-bottom: 5rem;
                         }
                     }
@@ -194,9 +194,6 @@
                         .d-flex {
                             justify-content: space-between;
                             margin-bottom: 1rem;
-                        }
-                        .btn-modern {
-                            // Your existing styles for .btn-modern
                         }
                     }
                     .fa-arrow-left {
@@ -230,7 +227,7 @@
                 h1 {
                     margin-bottom: 1.5rem;
                     font-size: 2rem;
-                    color: #333;
+                    color: white;
                 }
                 .form-group {
                     margin-bottom: 1rem;
@@ -238,7 +235,7 @@
                     label {
                         font-size: 1rem;
                         font-weight: 600;
-                        color: #000000;
+                        color: white;
                     }
                     .form-control {
                         width: 100%;
@@ -257,8 +254,29 @@
         .edit-playlist-container .simple_form .form-group label {
             color: black !important;
         }
-
-        .d-flex {
+   .d-flex {
             margin-top: 50px;
             margin-bottom: 0px;
         }
+
+
+[data-controller='validation'] input::placeholder {
+  color: #8f83a4;
+}
+
+[data-controller="validation"] input[data-validation-target="input_title"]::placeholder {
+  color: #8f83a4;
+}
+
+[data-controller="validation"] input[data-validation-target="input_message"]::placeholder {
+  color: #8f83a4;
+}
+
+[data-controller="validation"] textarea::placeholder {
+  color: #8f83a4;
+}
+
+[data-search-target="input"]::placeholder {
+  color: #8f83a4;
+}
+
