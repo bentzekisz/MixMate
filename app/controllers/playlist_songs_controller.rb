@@ -66,7 +66,7 @@ class PlaylistSongsController < ApplicationController
     @playlist = Playlist.find_by(id: params[:playlist_id])
 
     if @playlist
-      @playlist_songs = @playlist.playlist_songs
+      @playlist_songs = @playlist.playlist_songs.order(:position)
     else
       redirect_to root_path, alert: "Playlist not found"
     end
